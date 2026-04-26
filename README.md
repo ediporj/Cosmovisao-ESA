@@ -1,6 +1,6 @@
 # Cosmovisão ESA
 
-**ESA** são as iniciais de **Édipo Senna Ázaro** — um ser humano inquieto que, em vez de guardar suas perguntas filosóficas espalhadas por conversas, cadernos e abas mentais abertas, resolveu tentar organizá-las num único lugar.
+**ESA** são as iniciais do nome do autor — um ser humano inquieto que, em vez de guardar suas perguntas filosóficas espalhadas por conversas, cadernos e abas mentais abertas, resolveu tentar organizá-las num único lugar.
 
 Este repositório é essa tentativa. Não é uma religião, não é um manifesto, não é doutrina. É o mapa de sentido de uma pessoa específica — feito público porque mapas pessoais às vezes ajudam outros a se orientar.
 
