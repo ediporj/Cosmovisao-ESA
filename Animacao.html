@@ -114,15 +114,15 @@ const lblsEl = document.getElementById('lbls');
 const capEl  = document.getElementById('cap');
 const refEl  = document.getElementById('refCirc');
 
-const DOT_R   = [0.044, 0.031, 0.023, 0.017, 0.013];
-const DOT_CLR = ['#ffffff', '#90c8ff', '#5aaeff', '#3a8fdd', '#2070bb'];
-const FONT_SZ = [0.115,  0.086,  0.070,  0,      0     ];
+const DOT_R   = [0.044, 0.031, 0.023, 0.017, 0.012, 0.009, 0.007];
+const DOT_CLR = ['#ffffff', '#90c8ff', '#5aaeff', '#3a8fdd', '#2868cc', '#1a55aa', '#0f4088'];
+const FONT_SZ = [0.115,  0.086,  0.070,  0,      0,      0,      0     ];
 const LBL_D   = 1.20;
 
-const MAX_GEN  = 3;
-const T_HOLD   = 2400;
-const T_MORPH  = 1300;
-const T_CIRCLE = 2200;
+const MAX_GEN  = 5;
+const T_HOLD   = 1200;
+const T_MORPH  = 750;
+const T_CIRCLE = 1800;
 const SEG      = T_HOLD + T_MORPH;
 const TOTAL    = SEG * MAX_GEN + T_HOLD + T_CIRCLE;
 
@@ -131,6 +131,8 @@ const CAPTS = [
   'Pontos intermediários: αβ, βγ, αγ — hexágono',
   'Segunda camada: αβ₁, αβ₂, βγ₁, βγ₂, αγ₁, αγ₂',
   'Terceira subdivisão — 24 vértices',
+  'Quarta subdivisão — 48 vértices',
+  'Quinta subdivisão — 96 vértices',
   'O círculo se forma — o conhecimento sem fronteiras',
 ];
 
