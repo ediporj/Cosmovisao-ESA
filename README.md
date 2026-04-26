@@ -30,14 +30,16 @@ O framework parte de três vértices — **Alfa, Beta, Gama** — que formam um 
 - [Definições Fundamentais](framework/definicoes-fundamentais.md) — racional, razoável, conflito da mente, individualidade de Deus, existência do ateu
 - [Aproximar-se de Deus é Angustiante](framework/angustia-e-deus.md) — lucidez vs. conforto, o paradoxo da busca espiritual
 
-### Framework
+### Vértices do triângulo
 - [Estrutura geral](framework/estrutura.md)
 - [Ponto Alfa — Santíssima Trindade](framework/ponto-alfa.md)
-- [Ponto Alfa 3 — A Criança e o Infinito](framework/ponto-alfa-3.md)
+  - [Alfa 1 — Microcosmo e Macrocosmo](framework/alfa/alfa-1.md)
+  - [Alfa 2 — Onipresença de Deus e o Mundo Quântico](framework/alfa/alfa-2.md)
+  - [Alfa 3 — A Criança e o Infinito](framework/alfa/alfa-3.md)
 - [Ponto Beta — Transcendência Temporal](framework/ponto-beta.md)
 - [Ponto Gama — Realidade Dinâmica](framework/ponto-gama.md)
 
-### Pontos intermediários (Alfabetas — Alfa × Beta)
+### Pontos intermediários: Alfa × Beta (Alfabetas)
 - [Alfabeta 1 — Teoria das Cordas e o Macro/Micro](framework/alfabeta/alfabeta-1.md)
 - [Alfabeta 2 — Encarnações ou Desdobramentos?](framework/alfabeta/alfabeta-2.md)
 - [Alfabeta 3 — Desdobramentos Hierárquicos em Planos](framework/alfabeta/alfabeta-3.md)
@@ -46,9 +48,15 @@ O framework parte de três vértices — **Alfa, Beta, Gama** — que formam um 
 - [Alfabeta 6 — Relações Interpessoais e Karma](framework/alfabeta/alfabeta-6.md)
 - [Alfabeta 7 — Regras Físicas de Cada Plano](framework/alfabeta/alfabeta-7.md)
 
-### Pontos intermediários (Alfa3Betas — Alfa 3 × Beta)
+### Pontos intermediários: Alfa 3 × Beta (Alfa3Betas)
 - [Alfa3BetaØ — O Despertar de Deus no Caos](framework/alfa3beta/alfa3beta0.md)
 - [Alfa3Beta1 — A Consciência do Jogador](framework/alfa3beta/alfa3beta1.md)
+
+### Pontos intermediários: Alfa × Gama (Alfagamas)
+- [Alfagama 1 — A Vontade Fragmentada](framework/alfagama/alfagama-1.md)
+
+### Pontos intermediários: Beta × Gama (Betagamas)
+- [Betagama 1 — As Trilhas do Tempo Paralelo](framework/betagama/betagama-1.md)
 
 ### Referências e influências
 - [Helena Blavatsky e o Teosofismo](framework/referencias/blavatsky-teosofia.md)

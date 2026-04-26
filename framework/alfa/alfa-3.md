@@ -40,5 +40,5 @@ O nome "A Criança e o Infinito" não é metáfora decorativa. É o método: olh
 
 ## Pontos intermediários gerados pelo Alfa 3
 
-- [Alfa3BetaØ — O Despertar de Deus no Caos](alfa3beta/alfa3beta0.md)
-- [Alfa3Beta1 — A Consciência do Jogador](alfa3beta/alfa3beta1.md)
+- [Alfa3BetaØ — O Despertar de Deus no Caos](../alfa3beta/alfa3beta0.md)
+- [Alfa3Beta1 — A Consciência do Jogador](../alfa3beta/alfa3beta1.md)
