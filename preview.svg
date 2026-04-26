@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1.65 -1.65 3.3 3.3">
+<rect x="-1.65" y="-1.65" width="3.3" height="3.3" fill="#0c0c15"/>
+<circle cx="0" cy="0" r="1" fill="none" stroke="#fff" stroke-width="0.013" opacity="0.18"/>
+<text x="0" y="0.08" text-anchor="middle" dominant-baseline="middle" font-size="0.11" font-weight="700" fill="#fff" opacity="0.28" letter-spacing="0.03em" font-family="ui-sans-serif,Arial">Cosmovisão ESA</text>
+<g opacity="0">
+  <animate attributeName="opacity" values="1;1;1;0;0" keyTimes="0;0.0208;0.1042;0.1250;1" dur="24.0s" repeatCount="indefinite"/>
+  <polygon points="0.00000,-1.00000 0.86603,0.50000 -0.86603,0.50000" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="0.024" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 0.00000,-1.00000 A 1 1 0 0 1 0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,0.50000 A 1 1 0 0 1 -0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,0.50000 A 1 1 0 0 1 0.00000,-1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <circle cx="0.00000" cy="-1.00000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="-0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <text x="0.00000" y="-1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Alfa</text>
+  <text x="1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Beta</text>
+  <text x="-1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Gama</text>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">Triângulo base: Alfa, Beta, Gama</text>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.1333;0.1542;0.2375;0.2583;1" dur="24.0s" repeatCount="indefinite"/>
+  <polygon points="0.00000,-1.00000 0.86603,-0.50000 0.86603,0.50000 0.00000,1.00000 -0.86603,0.50000 -0.86603,-0.50000" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="0.024" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 0.00000,-1.00000 A 1 1 0 0 1 0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,-0.50000 A 1 1 0 0 1 0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,0.50000 A 1 1 0 0 1 0.00000,1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.00000,1.00000 A 1 1 0 0 1 -0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,0.50000 A 1 1 0 0 1 -0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,-0.50000 A 1 1 0 0 1 0.00000,-1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <circle cx="0.00000" cy="-1.00000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.00000" cy="1.00000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="-0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <text x="0.00000" y="-1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Alfa</text>
+  <text x="1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αβ</text>
+  <text x="1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Beta</text>
+  <text x="0.00000" y="1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">βγ</text>
+  <text x="-1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Gama</text>
+  <text x="-1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αγ</text>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">Hexágono: αβ, βγ, αγ</text>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.2667;0.2875;0.3708;0.3917;1" dur="24.0s" repeatCount="indefinite"/>
+  <polygon points="0.00000,-1.00000 0.50000,-0.86603 0.86603,-0.50000 1.00000,-0.00000 0.86603,0.50000 0.50000,0.86603 0.00000,1.00000 -0.50000,0.86603 -0.86603,0.50000 -1.00000,0.00000 -0.86603,-0.50000 -0.50000,-0.86603" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="0.024" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 0.00000,-1.00000 A 1 1 0 0 1 0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,-0.86603 A 1 1 0 0 1 0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,-0.50000 A 1 1 0 0 1 1.00000,-0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 1.00000,-0.00000 A 1 1 0 0 1 0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,0.50000 A 1 1 0 0 1 0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,0.86603 A 1 1 0 0 1 0.00000,1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.00000,1.00000 A 1 1 0 0 1 -0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,0.86603 A 1 1 0 0 1 -0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,0.50000 A 1 1 0 0 1 -1.00000,0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -1.00000,0.00000 A 1 1 0 0 1 -0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,-0.50000 A 1 1 0 0 1 -0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,-0.86603 A 1 1 0 0 1 0.00000,-1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <circle cx="0.00000" cy="-1.00000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="1.00000" cy="-0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.00000" cy="1.00000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="-1.00000" cy="0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <text x="0.00000" y="-1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Alfa</text>
+  <text x="0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₁</text>
+  <text x="1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αβ</text>
+  <text x="1.20000" y="-0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₂</text>
+  <text x="1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Beta</text>
+  <text x="0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₁</text>
+  <text x="0.00000" y="1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">βγ</text>
+  <text x="-0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₂</text>
+  <text x="-1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Gama</text>
+  <text x="-1.20000" y="0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₁</text>
+  <text x="-1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αγ</text>
+  <text x="-0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₂</text>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">Dodécagono: αβ₁, αβ₂, ...</text>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.4000;0.4208;0.4625;0.4833;1" dur="24.0s" repeatCount="indefinite"/>
+  <polygon points="0.00000,-1.00000 0.25882,-0.96593 0.50000,-0.86603 0.70711,-0.70711 0.86603,-0.50000 0.96593,-0.25882 1.00000,-0.00000 0.96593,0.25882 0.86603,0.50000 0.70711,0.70711 0.50000,0.86603 0.25882,0.96593 0.00000,1.00000 -0.25882,0.96593 -0.50000,0.86603 -0.70711,0.70711 -0.86603,0.50000 -0.96593,0.25882 -1.00000,0.00000 -0.96593,-0.25882 -0.86603,-0.50000 -0.70711,-0.70711 -0.50000,-0.86603 -0.25882,-0.96593" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="0.024" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 0.00000,-1.00000 A 1 1 0 0 1 0.25882,-0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.25882,-0.96593 A 1 1 0 0 1 0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,-0.86603 A 1 1 0 0 1 0.70711,-0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.70711,-0.70711 A 1 1 0 0 1 0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,-0.50000 A 1 1 0 0 1 0.96593,-0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.96593,-0.25882 A 1 1 0 0 1 1.00000,-0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 1.00000,-0.00000 A 1 1 0 0 1 0.96593,0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.96593,0.25882 A 1 1 0 0 1 0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,0.50000 A 1 1 0 0 1 0.70711,0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.70711,0.70711 A 1 1 0 0 1 0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,0.86603 A 1 1 0 0 1 0.25882,0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.25882,0.96593 A 1 1 0 0 1 0.00000,1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.00000,1.00000 A 1 1 0 0 1 -0.25882,0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.25882,0.96593 A 1 1 0 0 1 -0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,0.86603 A 1 1 0 0 1 -0.70711,0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.70711,0.70711 A 1 1 0 0 1 -0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,0.50000 A 1 1 0 0 1 -0.96593,0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.96593,0.25882 A 1 1 0 0 1 -1.00000,0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -1.00000,0.00000 A 1 1 0 0 1 -0.96593,-0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.96593,-0.25882 A 1 1 0 0 1 -0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,-0.50000 A 1 1 0 0 1 -0.70711,-0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.70711,-0.70711 A 1 1 0 0 1 -0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,-0.86603 A 1 1 0 0 1 -0.25882,-0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.25882,-0.96593 A 1 1 0 0 1 0.00000,-1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <circle cx="0.00000" cy="-1.00000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.25882" cy="-0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.70711" cy="-0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="0.96593" cy="-0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="1.00000" cy="-0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.96593" cy="0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.70711" cy="0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.25882" cy="0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.00000" cy="1.00000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.25882" cy="0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.70711" cy="0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="-0.96593" cy="0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-1.00000" cy="0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.96593" cy="-0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.70711" cy="-0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.25882" cy="-0.96593" r="0.017" fill="#3a8fdd"/>
+  <text x="0.00000" y="-1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Alfa</text>
+  <text x="0.31058" y="-1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₁₁</text>
+  <text x="0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₁</text>
+  <text x="0.84853" y="-0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₁₂</text>
+  <text x="1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αβ</text>
+  <text x="1.15911" y="-0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₂₁</text>
+  <text x="1.20000" y="-0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₂</text>
+  <text x="1.15911" y="0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₂₂</text>
+  <text x="1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Beta</text>
+  <text x="0.84853" y="0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₁₁</text>
+  <text x="0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₁</text>
+  <text x="0.31058" y="1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₁₂</text>
+  <text x="0.00000" y="1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">βγ</text>
+  <text x="-0.31058" y="1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₂₁</text>
+  <text x="-0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₂</text>
+  <text x="-0.84853" y="0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₂₂</text>
+  <text x="-1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Gama</text>
+  <text x="-1.15911" y="0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₁₁</text>
+  <text x="-1.20000" y="0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₁</text>
+  <text x="-1.15911" y="-0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₁₂</text>
+  <text x="-1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αγ</text>
+  <text x="-0.84853" y="-0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₂₁</text>
+  <text x="-0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₂</text>
+  <text x="-0.31058" y="-1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₂₂</text>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">24 vértices</text>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.4917;0.5125;0.5458;0.5667;1" dur="24.0s" repeatCount="indefinite"/>
+  <polygon points="0.00000,-1.00000 0.13053,-0.99144 0.25882,-0.96593 0.38268,-0.92388 0.50000,-0.86603 0.60876,-0.79335 0.70711,-0.70711 0.79335,-0.60876 0.86603,-0.50000 0.92388,-0.38268 0.96593,-0.25882 0.99144,-0.13053 1.00000,-0.00000 0.99144,0.13053 0.96593,0.25882 0.92388,0.38268 0.86603,0.50000 0.79335,0.60876 0.70711,0.70711 0.60876,0.79335 0.50000,0.86603 0.38268,0.92388 0.25882,0.96593 0.13053,0.99144 0.00000,1.00000 -0.13053,0.99144 -0.25882,0.96593 -0.38268,0.92388 -0.50000,0.86603 -0.60876,0.79335 -0.70711,0.70711 -0.79335,0.60876 -0.86603,0.50000 -0.92388,0.38268 -0.96593,0.25882 -0.99144,0.13053 -1.00000,0.00000 -0.99144,-0.13053 -0.96593,-0.25882 -0.92388,-0.38268 -0.86603,-0.50000 -0.79335,-0.60876 -0.70711,-0.70711 -0.60876,-0.79335 -0.50000,-0.86603 -0.38268,-0.92388 -0.25882,-0.96593 -0.13053,-0.99144" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="0.024" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 0.00000,-1.00000 A 1 1 0 0 1 0.13053,-0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.13053,-0.99144 A 1 1 0 0 1 0.25882,-0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.25882,-0.96593 A 1 1 0 0 1 0.38268,-0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.38268,-0.92388 A 1 1 0 0 1 0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,-0.86603 A 1 1 0 0 1 0.60876,-0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.60876,-0.79335 A 1 1 0 0 1 0.70711,-0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.70711,-0.70711 A 1 1 0 0 1 0.79335,-0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.79335,-0.60876 A 1 1 0 0 1 0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,-0.50000 A 1 1 0 0 1 0.92388,-0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.92388,-0.38268 A 1 1 0 0 1 0.96593,-0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.96593,-0.25882 A 1 1 0 0 1 0.99144,-0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.99144,-0.13053 A 1 1 0 0 1 1.00000,-0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 1.00000,-0.00000 A 1 1 0 0 1 0.99144,0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.99144,0.13053 A 1 1 0 0 1 0.96593,0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.96593,0.25882 A 1 1 0 0 1 0.92388,0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.92388,0.38268 A 1 1 0 0 1 0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,0.50000 A 1 1 0 0 1 0.79335,0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.79335,0.60876 A 1 1 0 0 1 0.70711,0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.70711,0.70711 A 1 1 0 0 1 0.60876,0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.60876,0.79335 A 1 1 0 0 1 0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,0.86603 A 1 1 0 0 1 0.38268,0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.38268,0.92388 A 1 1 0 0 1 0.25882,0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.25882,0.96593 A 1 1 0 0 1 0.13053,0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.13053,0.99144 A 1 1 0 0 1 0.00000,1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.00000,1.00000 A 1 1 0 0 1 -0.13053,0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.13053,0.99144 A 1 1 0 0 1 -0.25882,0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.25882,0.96593 A 1 1 0 0 1 -0.38268,0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.38268,0.92388 A 1 1 0 0 1 -0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,0.86603 A 1 1 0 0 1 -0.60876,0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.60876,0.79335 A 1 1 0 0 1 -0.70711,0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.70711,0.70711 A 1 1 0 0 1 -0.79335,0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.79335,0.60876 A 1 1 0 0 1 -0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,0.50000 A 1 1 0 0 1 -0.92388,0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.92388,0.38268 A 1 1 0 0 1 -0.96593,0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.96593,0.25882 A 1 1 0 0 1 -0.99144,0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.99144,0.13053 A 1 1 0 0 1 -1.00000,0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -1.00000,0.00000 A 1 1 0 0 1 -0.99144,-0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.99144,-0.13053 A 1 1 0 0 1 -0.96593,-0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.96593,-0.25882 A 1 1 0 0 1 -0.92388,-0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.92388,-0.38268 A 1 1 0 0 1 -0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,-0.50000 A 1 1 0 0 1 -0.79335,-0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.79335,-0.60876 A 1 1 0 0 1 -0.70711,-0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.70711,-0.70711 A 1 1 0 0 1 -0.60876,-0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.60876,-0.79335 A 1 1 0 0 1 -0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,-0.86603 A 1 1 0 0 1 -0.38268,-0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.38268,-0.92388 A 1 1 0 0 1 -0.25882,-0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.25882,-0.96593 A 1 1 0 0 1 -0.13053,-0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.13053,-0.99144 A 1 1 0 0 1 0.00000,-1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <circle cx="0.00000" cy="-1.00000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.13053" cy="-0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="0.25882" cy="-0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.38268" cy="-0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.60876" cy="-0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="0.70711" cy="-0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.79335" cy="-0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="0.92388" cy="-0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="0.96593" cy="-0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.99144" cy="-0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="1.00000" cy="-0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.99144" cy="0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="0.96593" cy="0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.92388" cy="0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.79335" cy="0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="0.70711" cy="0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.60876" cy="0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.38268" cy="0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="0.25882" cy="0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.13053" cy="0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="0.00000" cy="1.00000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.13053" cy="0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.25882" cy="0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.38268" cy="0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.60876" cy="0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.70711" cy="0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.79335" cy="0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="-0.92388" cy="0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.96593" cy="0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.99144" cy="0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="-1.00000" cy="0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.99144" cy="-0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.96593" cy="-0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.92388" cy="-0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.79335" cy="-0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.70711" cy="-0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.60876" cy="-0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.38268" cy="-0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.25882" cy="-0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.13053" cy="-0.99144" r="0.012" fill="#2868cc"/>
+  <text x="0.00000" y="-1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Alfa</text>
+  <text x="0.15663" y="-1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₁₁</text>
+  <text x="0.31058" y="-1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₁₁</text>
+  <text x="0.45922" y="-1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₁₂</text>
+  <text x="0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₁</text>
+  <text x="0.73051" y="-0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₂₁</text>
+  <text x="0.84853" y="-0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₁₂</text>
+  <text x="0.95202" y="-0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₂₂</text>
+  <text x="1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αβ</text>
+  <text x="1.10866" y="-0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₁₁</text>
+  <text x="1.15911" y="-0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₂₁</text>
+  <text x="1.18973" y="-0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₁₂</text>
+  <text x="1.20000" y="-0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₂</text>
+  <text x="1.18973" y="0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₂₁</text>
+  <text x="1.15911" y="0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₂₂</text>
+  <text x="1.10866" y="0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₂₂</text>
+  <text x="1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Beta</text>
+  <text x="0.95202" y="0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₁₁</text>
+  <text x="0.84853" y="0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₁₁</text>
+  <text x="0.73051" y="0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₁₂</text>
+  <text x="0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₁</text>
+  <text x="0.45922" y="1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₂₁</text>
+  <text x="0.31058" y="1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₁₂</text>
+  <text x="0.15663" y="1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₂₂</text>
+  <text x="0.00000" y="1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">βγ</text>
+  <text x="-0.15663" y="1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₁₁</text>
+  <text x="-0.31058" y="1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₂₁</text>
+  <text x="-0.45922" y="1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₁₂</text>
+  <text x="-0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₂</text>
+  <text x="-0.73051" y="0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₂₁</text>
+  <text x="-0.84853" y="0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₂₂</text>
+  <text x="-0.95202" y="0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₂₂</text>
+  <text x="-1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Gama</text>
+  <text x="-1.10866" y="0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₁₁</text>
+  <text x="-1.15911" y="0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₁₁</text>
+  <text x="-1.18973" y="0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₁₂</text>
+  <text x="-1.20000" y="0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₁</text>
+  <text x="-1.18973" y="-0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₂₁</text>
+  <text x="-1.15911" y="-0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₁₂</text>
+  <text x="-1.10866" y="-0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₂₂</text>
+  <text x="-1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αγ</text>
+  <text x="-0.95202" y="-0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₁₁</text>
+  <text x="-0.84853" y="-0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₂₁</text>
+  <text x="-0.73051" y="-0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₁₂</text>
+  <text x="-0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₂</text>
+  <text x="-0.45922" y="-1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₂₁</text>
+  <text x="-0.31058" y="-1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₂₂</text>
+  <text x="-0.15663" y="-1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₂₂</text>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">48 vértices</text>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.5750;0.5958;0.6292;0.6500;1" dur="24.0s" repeatCount="indefinite"/>
+  <polygon points="0.00000,-1.00000 0.06540,-0.99786 0.13053,-0.99144 0.19509,-0.98079 0.25882,-0.96593 0.32144,-0.94693 0.38268,-0.92388 0.44229,-0.89687 0.50000,-0.86603 0.55557,-0.83147 0.60876,-0.79335 0.65935,-0.75184 0.70711,-0.70711 0.75184,-0.65935 0.79335,-0.60876 0.83147,-0.55557 0.86603,-0.50000 0.89687,-0.44229 0.92388,-0.38268 0.94693,-0.32144 0.96593,-0.25882 0.98079,-0.19509 0.99144,-0.13053 0.99786,-0.06540 1.00000,-0.00000 0.99786,0.06540 0.99144,0.13053 0.98079,0.19509 0.96593,0.25882 0.94693,0.32144 0.92388,0.38268 0.89687,0.44229 0.86603,0.50000 0.83147,0.55557 0.79335,0.60876 0.75184,0.65935 0.70711,0.70711 0.65935,0.75184 0.60876,0.79335 0.55557,0.83147 0.50000,0.86603 0.44229,0.89687 0.38268,0.92388 0.32144,0.94693 0.25882,0.96593 0.19509,0.98079 0.13053,0.99144 0.06540,0.99786 0.00000,1.00000 -0.06540,0.99786 -0.13053,0.99144 -0.19509,0.98079 -0.25882,0.96593 -0.32144,0.94693 -0.38268,0.92388 -0.44229,0.89687 -0.50000,0.86603 -0.55557,0.83147 -0.60876,0.79335 -0.65935,0.75184 -0.70711,0.70711 -0.75184,0.65935 -0.79335,0.60876 -0.83147,0.55557 -0.86603,0.50000 -0.89687,0.44229 -0.92388,0.38268 -0.94693,0.32144 -0.96593,0.25882 -0.98079,0.19509 -0.99144,0.13053 -0.99786,0.06540 -1.00000,0.00000 -0.99786,-0.06540 -0.99144,-0.13053 -0.98079,-0.19509 -0.96593,-0.25882 -0.94693,-0.32144 -0.92388,-0.38268 -0.89687,-0.44229 -0.86603,-0.50000 -0.83147,-0.55557 -0.79335,-0.60876 -0.75184,-0.65935 -0.70711,-0.70711 -0.65935,-0.75184 -0.60876,-0.79335 -0.55557,-0.83147 -0.50000,-0.86603 -0.44229,-0.89687 -0.38268,-0.92388 -0.32144,-0.94693 -0.25882,-0.96593 -0.19509,-0.98079 -0.13053,-0.99144 -0.06540,-0.99786" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="0.024" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 0.00000,-1.00000 A 1 1 0 0 1 0.06540,-0.99786" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.06540,-0.99786 A 1 1 0 0 1 0.13053,-0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.13053,-0.99144 A 1 1 0 0 1 0.19509,-0.98079" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.19509,-0.98079 A 1 1 0 0 1 0.25882,-0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.25882,-0.96593 A 1 1 0 0 1 0.32144,-0.94693" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.32144,-0.94693 A 1 1 0 0 1 0.38268,-0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.38268,-0.92388 A 1 1 0 0 1 0.44229,-0.89687" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.44229,-0.89687 A 1 1 0 0 1 0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,-0.86603 A 1 1 0 0 1 0.55557,-0.83147" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.55557,-0.83147 A 1 1 0 0 1 0.60876,-0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.60876,-0.79335 A 1 1 0 0 1 0.65935,-0.75184" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.65935,-0.75184 A 1 1 0 0 1 0.70711,-0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.70711,-0.70711 A 1 1 0 0 1 0.75184,-0.65935" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.75184,-0.65935 A 1 1 0 0 1 0.79335,-0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.79335,-0.60876 A 1 1 0 0 1 0.83147,-0.55557" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.83147,-0.55557 A 1 1 0 0 1 0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,-0.50000 A 1 1 0 0 1 0.89687,-0.44229" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.89687,-0.44229 A 1 1 0 0 1 0.92388,-0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.92388,-0.38268 A 1 1 0 0 1 0.94693,-0.32144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.94693,-0.32144 A 1 1 0 0 1 0.96593,-0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.96593,-0.25882 A 1 1 0 0 1 0.98079,-0.19509" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.98079,-0.19509 A 1 1 0 0 1 0.99144,-0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.99144,-0.13053 A 1 1 0 0 1 0.99786,-0.06540" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.99786,-0.06540 A 1 1 0 0 1 1.00000,-0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 1.00000,-0.00000 A 1 1 0 0 1 0.99786,0.06540" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.99786,0.06540 A 1 1 0 0 1 0.99144,0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.99144,0.13053 A 1 1 0 0 1 0.98079,0.19509" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.98079,0.19509 A 1 1 0 0 1 0.96593,0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.96593,0.25882 A 1 1 0 0 1 0.94693,0.32144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.94693,0.32144 A 1 1 0 0 1 0.92388,0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.92388,0.38268 A 1 1 0 0 1 0.89687,0.44229" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.89687,0.44229 A 1 1 0 0 1 0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.86603,0.50000 A 1 1 0 0 1 0.83147,0.55557" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.83147,0.55557 A 1 1 0 0 1 0.79335,0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.79335,0.60876 A 1 1 0 0 1 0.75184,0.65935" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.75184,0.65935 A 1 1 0 0 1 0.70711,0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.70711,0.70711 A 1 1 0 0 1 0.65935,0.75184" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.65935,0.75184 A 1 1 0 0 1 0.60876,0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.60876,0.79335 A 1 1 0 0 1 0.55557,0.83147" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.55557,0.83147 A 1 1 0 0 1 0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.50000,0.86603 A 1 1 0 0 1 0.44229,0.89687" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.44229,0.89687 A 1 1 0 0 1 0.38268,0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.38268,0.92388 A 1 1 0 0 1 0.32144,0.94693" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.32144,0.94693 A 1 1 0 0 1 0.25882,0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.25882,0.96593 A 1 1 0 0 1 0.19509,0.98079" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.19509,0.98079 A 1 1 0 0 1 0.13053,0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.13053,0.99144 A 1 1 0 0 1 0.06540,0.99786" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.06540,0.99786 A 1 1 0 0 1 0.00000,1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M 0.00000,1.00000 A 1 1 0 0 1 -0.06540,0.99786" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.06540,0.99786 A 1 1 0 0 1 -0.13053,0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.13053,0.99144 A 1 1 0 0 1 -0.19509,0.98079" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.19509,0.98079 A 1 1 0 0 1 -0.25882,0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.25882,0.96593 A 1 1 0 0 1 -0.32144,0.94693" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.32144,0.94693 A 1 1 0 0 1 -0.38268,0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.38268,0.92388 A 1 1 0 0 1 -0.44229,0.89687" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.44229,0.89687 A 1 1 0 0 1 -0.50000,0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,0.86603 A 1 1 0 0 1 -0.55557,0.83147" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.55557,0.83147 A 1 1 0 0 1 -0.60876,0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.60876,0.79335 A 1 1 0 0 1 -0.65935,0.75184" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.65935,0.75184 A 1 1 0 0 1 -0.70711,0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.70711,0.70711 A 1 1 0 0 1 -0.75184,0.65935" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.75184,0.65935 A 1 1 0 0 1 -0.79335,0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.79335,0.60876 A 1 1 0 0 1 -0.83147,0.55557" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.83147,0.55557 A 1 1 0 0 1 -0.86603,0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,0.50000 A 1 1 0 0 1 -0.89687,0.44229" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.89687,0.44229 A 1 1 0 0 1 -0.92388,0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.92388,0.38268 A 1 1 0 0 1 -0.94693,0.32144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.94693,0.32144 A 1 1 0 0 1 -0.96593,0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.96593,0.25882 A 1 1 0 0 1 -0.98079,0.19509" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.98079,0.19509 A 1 1 0 0 1 -0.99144,0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.99144,0.13053 A 1 1 0 0 1 -0.99786,0.06540" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.99786,0.06540 A 1 1 0 0 1 -1.00000,0.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -1.00000,0.00000 A 1 1 0 0 1 -0.99786,-0.06540" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.99786,-0.06540 A 1 1 0 0 1 -0.99144,-0.13053" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.99144,-0.13053 A 1 1 0 0 1 -0.98079,-0.19509" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.98079,-0.19509 A 1 1 0 0 1 -0.96593,-0.25882" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.96593,-0.25882 A 1 1 0 0 1 -0.94693,-0.32144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.94693,-0.32144 A 1 1 0 0 1 -0.92388,-0.38268" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.92388,-0.38268 A 1 1 0 0 1 -0.89687,-0.44229" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.89687,-0.44229 A 1 1 0 0 1 -0.86603,-0.50000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.86603,-0.50000 A 1 1 0 0 1 -0.83147,-0.55557" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.83147,-0.55557 A 1 1 0 0 1 -0.79335,-0.60876" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.79335,-0.60876 A 1 1 0 0 1 -0.75184,-0.65935" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.75184,-0.65935 A 1 1 0 0 1 -0.70711,-0.70711" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.70711,-0.70711 A 1 1 0 0 1 -0.65935,-0.75184" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.65935,-0.75184 A 1 1 0 0 1 -0.60876,-0.79335" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.60876,-0.79335 A 1 1 0 0 1 -0.55557,-0.83147" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.55557,-0.83147 A 1 1 0 0 1 -0.50000,-0.86603" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.50000,-0.86603 A 1 1 0 0 1 -0.44229,-0.89687" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.44229,-0.89687 A 1 1 0 0 1 -0.38268,-0.92388" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.38268,-0.92388 A 1 1 0 0 1 -0.32144,-0.94693" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.32144,-0.94693 A 1 1 0 0 1 -0.25882,-0.96593" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.25882,-0.96593 A 1 1 0 0 1 -0.19509,-0.98079" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.19509,-0.98079 A 1 1 0 0 1 -0.13053,-0.99144" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.13053,-0.99144 A 1 1 0 0 1 -0.06540,-0.99786" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <path d="M -0.06540,-0.99786 A 1 1 0 0 1 0.00000,-1.00000" fill="none" stroke="#ffaa44" stroke-width="0.030"/>
+  <circle cx="0.00000" cy="-1.00000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.06540" cy="-0.99786" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.13053" cy="-0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="0.19509" cy="-0.98079" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.25882" cy="-0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.32144" cy="-0.94693" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.38268" cy="-0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="0.44229" cy="-0.89687" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.55557" cy="-0.83147" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.60876" cy="-0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="0.65935" cy="-0.75184" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.70711" cy="-0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.75184" cy="-0.65935" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.79335" cy="-0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="0.83147" cy="-0.55557" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="0.89687" cy="-0.44229" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.92388" cy="-0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="0.94693" cy="-0.32144" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.96593" cy="-0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.98079" cy="-0.19509" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.99144" cy="-0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="0.99786" cy="-0.06540" r="0.009" fill="#1a55aa"/>
+  <circle cx="1.00000" cy="-0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.99786" cy="0.06540" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.99144" cy="0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="0.98079" cy="0.19509" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.96593" cy="0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.94693" cy="0.32144" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.92388" cy="0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="0.89687" cy="0.44229" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="0.83147" cy="0.55557" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.79335" cy="0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="0.75184" cy="0.65935" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.70711" cy="0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.65935" cy="0.75184" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.60876" cy="0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="0.55557" cy="0.83147" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="0.44229" cy="0.89687" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.38268" cy="0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="0.32144" cy="0.94693" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.25882" cy="0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="0.19509" cy="0.98079" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.13053" cy="0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="0.06540" cy="0.99786" r="0.009" fill="#1a55aa"/>
+  <circle cx="0.00000" cy="1.00000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.06540" cy="0.99786" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.13053" cy="0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.19509" cy="0.98079" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.25882" cy="0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.32144" cy="0.94693" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.38268" cy="0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.44229" cy="0.89687" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.50000" cy="0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.55557" cy="0.83147" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.60876" cy="0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.65935" cy="0.75184" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.70711" cy="0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.75184" cy="0.65935" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.79335" cy="0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.83147" cy="0.55557" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.86603" cy="0.50000" r="0.044" fill="#ffffff"/>
+  <circle cx="-0.89687" cy="0.44229" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.92388" cy="0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.94693" cy="0.32144" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.96593" cy="0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.98079" cy="0.19509" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.99144" cy="0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.99786" cy="0.06540" r="0.009" fill="#1a55aa"/>
+  <circle cx="-1.00000" cy="0.00000" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.99786" cy="-0.06540" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.99144" cy="-0.13053" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.98079" cy="-0.19509" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.96593" cy="-0.25882" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.94693" cy="-0.32144" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.92388" cy="-0.38268" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.89687" cy="-0.44229" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.86603" cy="-0.50000" r="0.031" fill="#90c8ff"/>
+  <circle cx="-0.83147" cy="-0.55557" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.79335" cy="-0.60876" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.75184" cy="-0.65935" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.70711" cy="-0.70711" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.65935" cy="-0.75184" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.60876" cy="-0.79335" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.55557" cy="-0.83147" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.50000" cy="-0.86603" r="0.023" fill="#5aaeff"/>
+  <circle cx="-0.44229" cy="-0.89687" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.38268" cy="-0.92388" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.32144" cy="-0.94693" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.25882" cy="-0.96593" r="0.017" fill="#3a8fdd"/>
+  <circle cx="-0.19509" cy="-0.98079" r="0.009" fill="#1a55aa"/>
+  <circle cx="-0.13053" cy="-0.99144" r="0.012" fill="#2868cc"/>
+  <circle cx="-0.06540" cy="-0.99786" r="0.009" fill="#1a55aa"/>
+  <text x="0.00000" y="-1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Alfa</text>
+  <text x="0.07848" y="-1.19743" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₁₁₁</text>
+  <text x="0.15663" y="-1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₁₁</text>
+  <text x="0.23411" y="-1.17694" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₁₁₂</text>
+  <text x="0.31058" y="-1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₁₁</text>
+  <text x="0.38573" y="-1.13632" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₁₂₁</text>
+  <text x="0.45922" y="-1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₁₂</text>
+  <text x="0.53075" y="-1.07625" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₁₂₂</text>
+  <text x="0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₁</text>
+  <text x="0.66668" y="-0.99776" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₂₁₁</text>
+  <text x="0.73051" y="-0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₂₁</text>
+  <text x="0.79121" y="-0.90221" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₂₁₂</text>
+  <text x="0.84853" y="-0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₁₂</text>
+  <text x="0.90221" y="-0.79121" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₂₂₁</text>
+  <text x="0.95202" y="-0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₁₂₂</text>
+  <text x="0.99776" y="-0.66668" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₁₂₂₂</text>
+  <text x="1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αβ</text>
+  <text x="1.07625" y="-0.53075" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₁₁₁</text>
+  <text x="1.10866" y="-0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₁₁</text>
+  <text x="1.13632" y="-0.38573" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₁₁₂</text>
+  <text x="1.15911" y="-0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₂₁</text>
+  <text x="1.17694" y="-0.23411" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₁₂₁</text>
+  <text x="1.18973" y="-0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₁₂</text>
+  <text x="1.19743" y="-0.07848" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₁₂₂</text>
+  <text x="1.20000" y="-0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αβ₂</text>
+  <text x="1.19743" y="0.07848" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₂₁₁</text>
+  <text x="1.18973" y="0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₂₁</text>
+  <text x="1.17694" y="0.23411" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₂₁₂</text>
+  <text x="1.15911" y="0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αβ₂₂</text>
+  <text x="1.13632" y="0.38573" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₂₂₁</text>
+  <text x="1.10866" y="0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αβ₂₂₂</text>
+  <text x="1.07625" y="0.53075" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αβ₂₂₂₂</text>
+  <text x="1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Beta</text>
+  <text x="0.99776" y="0.66668" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₁₁₁</text>
+  <text x="0.95202" y="0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₁₁</text>
+  <text x="0.90221" y="0.79121" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₁₁₂</text>
+  <text x="0.84853" y="0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₁₁</text>
+  <text x="0.79121" y="0.90221" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₁₂₁</text>
+  <text x="0.73051" y="0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₁₂</text>
+  <text x="0.66668" y="0.99776" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₁₂₂</text>
+  <text x="0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₁</text>
+  <text x="0.53075" y="1.07625" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₂₁₁</text>
+  <text x="0.45922" y="1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₂₁</text>
+  <text x="0.38573" y="1.13632" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₂₁₂</text>
+  <text x="0.31058" y="1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₁₂</text>
+  <text x="0.23411" y="1.17694" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₂₂₁</text>
+  <text x="0.15663" y="1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₁₂₂</text>
+  <text x="0.07848" y="1.19743" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₁₂₂₂</text>
+  <text x="0.00000" y="1.20000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">βγ</text>
+  <text x="-0.07848" y="1.19743" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₁₁₁</text>
+  <text x="-0.15663" y="1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₁₁</text>
+  <text x="-0.23411" y="1.17694" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₁₁₂</text>
+  <text x="-0.31058" y="1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₂₁</text>
+  <text x="-0.38573" y="1.13632" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₁₂₁</text>
+  <text x="-0.45922" y="1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₁₂</text>
+  <text x="-0.53075" y="1.07625" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₁₂₂</text>
+  <text x="-0.60000" y="1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">βγ₂</text>
+  <text x="-0.66668" y="0.99776" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₂₁₁</text>
+  <text x="-0.73051" y="0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₂₁</text>
+  <text x="-0.79121" y="0.90221" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₂₁₂</text>
+  <text x="-0.84853" y="0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">βγ₂₂</text>
+  <text x="-0.90221" y="0.79121" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₂₂₁</text>
+  <text x="-0.95202" y="0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">βγ₂₂₂</text>
+  <text x="-0.99776" y="0.66668" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">βγ₂₂₂₂</text>
+  <text x="-1.03923" y="0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.1150" fill="#ffffff" font-family="ui-sans-serif,Arial">Gama</text>
+  <text x="-1.07625" y="0.53075" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₁₁₁</text>
+  <text x="-1.10866" y="0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₁₁</text>
+  <text x="-1.13632" y="0.38573" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₁₁₂</text>
+  <text x="-1.15911" y="0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₁₁</text>
+  <text x="-1.17694" y="0.23411" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₁₂₁</text>
+  <text x="-1.18973" y="0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₁₂</text>
+  <text x="-1.19743" y="0.07848" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₁₂₂</text>
+  <text x="-1.20000" y="0.00000" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₁</text>
+  <text x="-1.19743" y="-0.07848" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₂₁₁</text>
+  <text x="-1.18973" y="-0.15663" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₂₁</text>
+  <text x="-1.17694" y="-0.23411" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₂₁₂</text>
+  <text x="-1.15911" y="-0.31058" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₁₂</text>
+  <text x="-1.13632" y="-0.38573" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₂₂₁</text>
+  <text x="-1.10866" y="-0.45922" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₁₂₂</text>
+  <text x="-1.07625" y="-0.53075" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₁₂₂₂</text>
+  <text x="-1.03923" y="-0.60000" text-anchor="middle" dominant-baseline="middle" font-size="0.0860" fill="#90c8ff" font-family="ui-sans-serif,Arial">αγ</text>
+  <text x="-0.99776" y="-0.66668" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₁₁₁</text>
+  <text x="-0.95202" y="-0.73051" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₁₁</text>
+  <text x="-0.90221" y="-0.79121" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₁₁₂</text>
+  <text x="-0.84853" y="-0.84853" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₂₁</text>
+  <text x="-0.79121" y="-0.90221" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₁₂₁</text>
+  <text x="-0.73051" y="-0.95202" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₁₂</text>
+  <text x="-0.66668" y="-0.99776" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₁₂₂</text>
+  <text x="-0.60000" y="-1.03923" text-anchor="middle" dominant-baseline="middle" font-size="0.0700" fill="#5aaeff" font-family="ui-sans-serif,Arial">αγ₂</text>
+  <text x="-0.53075" y="-1.07625" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₂₁₁</text>
+  <text x="-0.45922" y="-1.10866" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₂₁</text>
+  <text x="-0.38573" y="-1.13632" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₂₁₂</text>
+  <text x="-0.31058" y="-1.15911" text-anchor="middle" dominant-baseline="middle" font-size="0.0540" fill="#3a8fdd" font-family="ui-sans-serif,Arial">αγ₂₂</text>
+  <text x="-0.23411" y="-1.17694" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₂₂₁</text>
+  <text x="-0.15663" y="-1.18973" text-anchor="middle" dominant-baseline="middle" font-size="0.0420" fill="#2868cc" font-family="ui-sans-serif,Arial">αγ₂₂₂</text>
+  <text x="-0.07848" y="-1.19743" text-anchor="middle" dominant-baseline="middle" font-size="0.0330" fill="#1a55aa" font-family="ui-sans-serif,Arial">αγ₂₂₂₂</text>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">96 vértices</text>
+</g>
+<g opacity="0">
+  <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0.6583;0.6792;0.8750;0.8958;1" dur="24.0s" repeatCount="indefinite"/>
+  <circle cx="0" cy="0" r="1" fill="none" stroke="#fff" stroke-width="0.022" opacity="0.85"/>
+  <text x="0" y="1.52" text-anchor="middle" font-size="0.075" fill="#fff" opacity="0.55" font-family="ui-sans-serif,Arial">O círculo se forma</text>
+</g>
+</svg>
