@@ -57,12 +57,25 @@ function circ(i, n) {
   return { x: Math.cos(a), y: -Math.sin(a) };
 }
 
-// Labels in order for each generation's polygon
-const GEN_LABELS = [
-  ['Alfa', 'Beta', 'Gama'],
-  ['Alfa', 'αβ', 'Beta', 'βγ', 'Gama', 'αγ'],
-  ['Alfa','αβ₁','αβ','αβ₂','Beta','βγ₁','βγ','βγ₂','Gama','αγ₁','αγ','αγ₂'],
-];
+const CORNER_NAMES = ['Alfa', 'Beta', 'Gama'];
+const ARC_BASES    = ['αβ', 'βγ', 'αγ'];
+
+// Generate label for point i in a gen-k polygon via binary subdivision path
+function genLabel(k, i) {
+  const sectionSize = Math.pow(2, k);
+  const section = Math.floor(i / sectionSize);
+  const pos = i % sectionSize;
+  if (pos === 0) return CORNER_NAMES[section];
+  const base = ARC_BASES[section];
+  let label = base, lo = 0, hi = sectionSize;
+  while (hi - lo > 1) {
+    const mid = (lo + hi) / 2;
+    if      (pos < mid) { label += '₁'; hi = mid; }
+    else if (pos > mid) { label += '₂'; lo = mid; }
+    else break;
+  }
+  return label;
+}
 
 // Which generation point i first appeared in, within a gen-k polygon of n=3*2^k pts
 function pointGen(i, k) {
@@ -84,7 +97,7 @@ function buildGen(k) {
     return {
       ...p,
       gen:   pointGen(i, k),
-      label: k <= 2 ? (GEN_LABELS[k][i] ?? null) : null,
+      label: genLabel(k, i),
     };
   });
 }
@@ -118,7 +131,7 @@ const refEl  = document.getElementById('refCirc');
 
 const DOT_R   = [0.044, 0.031, 0.023, 0.017, 0.012, 0.009, 0.007];
 const DOT_CLR = ['#ffffff', '#90c8ff', '#5aaeff', '#3a8fdd', '#2868cc', '#1a55aa', '#0f4088'];
-const FONT_SZ = [0.115,  0.086,  0.070,  0,      0,      0,      0     ];
+const FONT_SZ = [0.115,  0.086,  0.070,  0.054,  0.042,  0.033,  0     ];
 const LBL_D   = 1.20;
 
 const MAX_GEN  = 5;
