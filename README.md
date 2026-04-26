@@ -28,6 +28,7 @@ O framework parte de três vértices — **Alfa, Beta, Gama** — que formam um 
 
 ### Definições e fundamentos
 - [Definições Fundamentais](framework/definicoes-fundamentais.md) — racional, razoável, conflito da mente, individualidade de Deus, existência do ateu
+- [Aproximar-se de Deus é Angustiante](framework/angustia-e-deus.md) — lucidez vs. conforto, o paradoxo da busca espiritual
 
 ### Framework
 - [Estrutura geral](framework/estrutura.md)
