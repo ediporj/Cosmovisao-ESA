@@ -64,6 +64,7 @@ O framework parte de três vértices — **Alfa, Beta, Gama** — que formam um 
 ### Personas
 - [Walter Aio — como consultar](personas/walter-aio.md)
 - [Thales Aio — como usar](personas/thales-aio.md)
+- [A cabeça do Walter Aio — raciocínio interno da persona](personas/A_cabeca_do_Walter-aio.md)
 
 ---
 
