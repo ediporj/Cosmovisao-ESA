@@ -12,6 +12,16 @@ A Cosmovisão ESA é uma tentativa de unificar, num único sistema coerente, cre
 
 ---
 
+## Animação interativa
+
+**[→ Abrir animação](https://ediporj.github.io/Cosmovisao-ESA/Animacao.html)**
+
+A animação mostra visualmente a expansão do framework: um triângulo com três vértices (Alfa, Beta, Gama) que se subdivide progressivamente em hexágono, dodecágono, e assim por diante — cada geração adicionando novos pontos intermediários nomeados, todos convergindo para um círculo. O círculo representa o conhecimento pleno, sempre assintótico: quanto mais pontos, mais perto — mas nunca fechado.
+
+Os arcos em laranja entre cada par de vértices tornam visível o espaço que ainda separa o polígono do círculo — a distância que permanece entre o que sabemos e o que é.
+
+---
+
 ## Estrutura: do triângulo ao círculo
 
 O framework parte de três vértices — **Alfa, Beta, Gama** — que formam um triângulo inicial. À medida que novos temas são debatidos entre os vértices, surgem pontos intermediários chamados **"alfabetas"** (entre Alfa e Beta), **"alfagamas"** (entre Alfa e Gama) e **"betagamas"** (entre Beta e Gama). O triângulo se expande progressivamente em direção a um círculo.
