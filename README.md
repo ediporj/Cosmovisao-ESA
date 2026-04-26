@@ -1,8 +1,8 @@
 # Cosmovisão ESA
 
-**Uma síntese filosófico-espiritual pessoal** — em construção.
+**ESA** são as iniciais de **Édipo Senna Ázaro** — um ser humano inquieto que, em vez de guardar suas perguntas filosóficas espalhadas por conversas, cadernos e abas mentais abertas, resolveu tentar organizá-las num único lugar.
 
-"ESA" são as iniciais de **Édipo Senna Ázaro**, autor e fundador deste framework.
+Este repositório é essa tentativa. Não é uma religião, não é um manifesto, não é doutrina. É o mapa de sentido de uma pessoa específica — feito público porque mapas pessoais às vezes ajudam outros a se orientar.
 
 ---
 
@@ -22,7 +22,7 @@ Faça uma pergunta. Receba uma resposta filosófica construída a partir do fram
 
 ## O que é isto
 
-A Cosmovisão ESA é uma tentativa de unificar, num único sistema coerente, crenças que estavam fragmentadas em "abas" mentais separadas: catolicismo, espiritismo kardecista, budismo, física moderna, tradições orientais. Não é uma religião. É um **mapa pessoal de sentido** — em expansão contínua.
+A Cosmovisão ESA é uma tentativa de unificar, num único sistema coerente, crenças que estavam fragmentadas em "abas" mentais separadas: catolicismo, espiritismo kardecista, budismo, física moderna, tradições orientais. É um **mapa pessoal de sentido** — em expansão contínua.
 
 ---
 
