@@ -86,7 +86,6 @@
     color: #d8d8e8;
     min-height: 100px;
   }
-  .theme-tag { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #5aaeff; opacity: .5; margin-top: .4rem; align-self: flex-start; padding-left: .2rem; }
   .rating-wrap { display: flex; flex-direction: column; align-items: center; gap: .9rem; width: 100%; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.2rem; margin-top: .4rem; }
   .rating-label { font-size: .78rem; opacity: .4; letter-spacing: .06em; }
   .stars { display: flex; gap: .5rem; }
@@ -100,6 +99,7 @@
   @keyframes fadeIn { from { opacity: 0; } to { opacity: .3; } }
   .cursor::after { content: '|'; animation: blink .7s step-end infinite; color: #ffaa44; margin-left: 1px; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .error-msg { font-size: .82rem; color: rgba(255,100,100,0.7); text-align: center; padding: 0 1rem; }
 </style>
 </head>
 <body>
@@ -117,7 +117,7 @@
   </div>
 
   <div id="screen-input" class="screen">
-    <textarea id="question" placeholder="Qual é a tua pergunta?" rows="4" maxlength="500"></textarea>
+    <textarea id="question" placeholder="Qual é a tua pergunta?" rows="4" maxlength="800"></textarea>
     <button class="primary" onclick="consult()">Consultar o Oráculo</button>
   </div>
 
@@ -135,7 +135,7 @@
   <div id="screen-response" class="screen" hidden>
     <div class="question-echo" id="question-echo"></div>
     <div class="response-box" id="response-text"></div>
-    <div class="theme-tag" id="theme-tag"></div>
+
     <div class="rating-wrap">
       <div class="rating-label">Esta resposta te ajudou?</div>
       <div class="stars" id="stars">
@@ -151,9 +151,14 @@
       <div id="sent-msg" class="sent-msg" hidden>Avaliação registrada. Obrigado.</div>
     </div>
   </div>
+
 </div>
 
 <script>
+// ── CONFIGURAÇÃO ──────────────────────────────────────────────────────────
+// Substitui pela URL do teu Cloudflare Worker após o deploy
+const WORKER_URL = 'https://cosmovisaoesa.ediporj.workers.dev';
+
 // ── GOOGLE FORMS ──────────────────────────────────────────────────────────
 const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSejbisEigTEHQlXLtu2r_vTwfEH4Y75JatduYxGv4V35i1qvg/formResponse';
 const ENTRY = {
@@ -162,400 +167,19 @@ const ENTRY = {
   nota:         'entry.710531699',
   palavrasChave:'entry.186344649'
 };
-function submitForm(pergunta, resposta, nota, palavrasChave) {
+function submitForm(pergunta, resposta, nota) {
   const fd = new FormData();
   fd.append(ENTRY.pergunta,      pergunta);
   fd.append(ENTRY.resposta,      resposta);
   fd.append(ENTRY.nota,          String(nota));
-  fd.append(ENTRY.palavrasChave, palavrasChave);
+  fd.append(ENTRY.palavrasChave, 'llm');
   fetch(FORM_ACTION, { method:'POST', mode:'no-cors', body: fd }).catch(()=>{});
 }
 
-// ── DATABASE ──────────────────────────────────────────────────────────────
-const DB = {
-  deus: {
-    label: 'Sobre Deus',
-    keys: ['deus','divino','criador','absoluto','senhor','pai','todo-poderoso','existe deus','há deus','existência de deus'],
-    responses: [
-      'Deus não é uma resposta que se encontra no fim da busca. É a pergunta que a busca acorda em ti. Quanto mais te aproximas, mais o horizonte recua — e isso não é falha do sistema. É o tamanho do que estás tentando alcançar. Chegas mais perto não quando entendes mais, mas quando aceitas que o entendimento tem limite e algo em ti continua querendo mesmo assim.',
-      'Na Cosmovisão ESA, Deus não é um ser separado que te observa de cima. É o somatório de todas as consciências que existem, existiram e existirão. Se pudéssemos integrar matematicamente o infinito de existências — o resultado seria Deus. Isso significa que quando cresces em consciência, Deus cresce. Não metaforicamente. Literalmente.',
-      'Deus é o nome que damos à resposta que não sabemos formular. Cada ser humano cria o seu próprio Deus — moldado pelas perguntas que não consegue responder mas não consegue parar de fazer. Isso não torna Deus menos real. Torna-o mais pessoal do que qualquer dogma poderia sustentar.',
-      'Deus não precisa da tua crença para existir. Mas a tua crença muda o que Deus é — porque cada consciência que evolui, evolui o somatório. Quando perguntas "Deus existe?", já estás participando d\'Ele.',
-      'Se Deus é onipresente, então está em cada contradição, em cada dor, em cada escolha errada que fizeste. Não como observador distante — como substância. Tu não estás à distância de Deus. Nunca estiveste.',
-      'A individualidade de Deus é paradoxal. Deus é uno e é muitos ao mesmo tempo. É o oceano que se manifesta em gotas — cada gota com sua trajetória, sua temperatura, sua história. A gota acha que é separada do oceano. O oceano sabe que não.',
-      'Perguntar se Deus existe é como a onda perguntar se o mar existe. A pergunta pressupõe uma separação que não há. Tu és o mar perguntando sobre si mesmo.',
-      'Deus não joga dados, dizia Einstein. A ESA acrescenta: Deus não joga dados porque Deus é o espaço onde os dados rodam, as regras do jogo e os próprios dados. Não há fora d\'Ele onde o acaso possa acontecer.',
-      'A imagem de Deus como pai é uma aproximação — útil, mas limitada. Ela captura algo real: a relação entre o Todo e a parte é de cuidado, não de indiferença. Mas reduz o infinito a uma categoria humana. Deus é pai como o sol é quente — verdadeiro, e ao mesmo tempo insuficiente para o que o sol é.',
-      'Aproximar-se de Deus não é tornar-se mais feliz. É tornar-se mais vasto. E a vastidão assusta antes de libertar. Se a tua busca espiritual está te trazendo apenas conforto, talvez ainda não tenhas começado a busca de verdade.'
-    ]
-  },
-  morte: {
-    label: 'Sobre a Morte',
-    keys: ['morte','morrer','fim','acabar','partir','eterno','eternidade','depois de morrer','além','morto','luto','perda'],
-    responses: [
-      'A morte é o momento em que a câmara de gravidade se abre. O peso que a vida física impõe — o peso que te força a crescer, a escolher, a sofrer e a amar com urgência — esse peso se dissolve. E o que fica não é nada. É tudo o que foi aprendido, sem o peso de carregá-lo.',
-      'Tu perguntas sobre a morte como se fosse o fim de algo. Mas dentro da Cosmovisão ESA, a morte é mais parecida com um despertar do que com um apagar. O sonho — a vida física — tem uma lógica interna tão convincente que esquecemos que é sonho. Ao morrer, lembramos. E o que lembramos não é pequeno.',
-      'A mortalidade não é um defeito do design. É o design. Um ser imortal não tem urgência de crescer, de perdoar hoje, de dizer o que precisa ser dito agora. A finitude é a pressão que faz o diamante. Sem ela, somos carvão confortável.',
-      'O que chamamos de morte é uma transição de plano. Como sair de uma sala onde o som era ensurdecedor para um corredor onde o silêncio parece absoluto — até os novos sons do corredor se revelarem. O espírito não para. Muda de frequência.',
-      'A questão não é se existe algo depois da morte. É o que fazes com a certeza de que a morte existe. Ela é o melhor professor de urgência que a vida oferece — e a maioria de nós só o ouve quando ele está muito próximo.',
-      'O luto não é fraqueza. É o preço do amor com prazo. Se não doesse perder alguém, seria porque nunca importou. A dor do luto é a medida do amor que existiu — e esse amor não morre com o corpo.',
-      'Morremos muitas vezes antes de morrer. Cada versão de si que deixas para trás — a criança que eras, o jovem que foste, o que acreditavas e já não acreditas — é uma morte. E estavas aqui do outro lado dela. A morte final não é diferente em natureza. Só em escala.',
-      'O medo da morte é, muitas vezes, o medo de não ter vivido. Não o medo do que vem depois — o medo de chegar lá sem ter feito o que sabia que devia fazer. Essa angústia é útil. Ouça-a enquanto ainda há tempo de agir.',
-      'A morte não é o inimigo da vida. É o que dá forma a ela. Sem prazo, nada tem urgência. Sem fim, nada tem começo. A morte é o frame que faz da vida uma obra de arte e não um rascunho infinito.',
-      'Em outros planos, o tempo não passa da mesma forma. Uma vida inteira aqui pode ser um instante lá. Isso não diminui o que viveste — torna mais precioso cada instante desta vida. Estás numa câmara de pressão. O diamante está sendo feito agora.'
-    ]
-  },
-  amor: {
-    label: 'Sobre o Amor',
-    keys: ['amor','amar','relacionamento','perdão','perdoar','parceiro','parceira','amar alguém','pessoa amada','desamor','apaixonado'],
-    responses: [
-      'O amor é o único fenômeno que desafia a lógica sem contradizê-la. Não tem explicação satisfatória em nenhum nível — nem químico, nem filosófico, nem espiritual. Talvez porque seja o único lugar onde o micro e o macro se tocam diretamente: quando tu amas alguém, Deus está amando Deus.',
-      'O perdão não é fazer de conta que não aconteceu. É reconhecer que o outro estava tão preso quanto tu — na mesma câmara de gravidade, com o mesmo peso, com ferramentas diferentes ou menores. Perdoar é enxergar o espírito por trás da limitação. É difícil. Às vezes é o trabalho de uma vida inteira.',
-      'As relações não são aleatórias. São câmaras de aprendizado escolhidas. As pessoas que te amam e as que te ferem vieram com funções — não como punição ou recompensa, mas como laboratório. A pergunta não é "por que isso acontece comigo?" É "o que isso está tentando me ensinar?"',
-      'O amor romântico é apenas uma das faces do amor — a mais visível, a mais cantada, e talvez não a mais profunda. O amor que uma mãe sente por um filho doente às três da manhã, o amor que um estranho sente ao ajudar sem motivo — esses amores tocam algo que o amor romântico às vezes apenas promete.',
-      'Quando dizes que amas alguém, na linguagem da ESA estás dizendo: reconheço em ti o mesmo fundo que há em mim. O amor é reconhecimento antes de ser sentimento. É ver o espírito no outro antes de ver o corpo, o comportamento, a história.',
-      'O desamor não é o oposto do amor — é o amor que encontrou um obstáculo maior do que tinha capacidade de superar. A indiferença é o oposto do amor. Quem ainda te magoa com sua ausência ainda te ama de alguma forma.',
-      'Amar sem apego não é amar com frieza. É amar com mãos abertas — permitir que o outro seja o que é, não o que precisas que seja. É a forma mais difícil de amor e talvez a mais divina. Deus ama assim: com mãos abertas sobre o livre-arbítrio de cada consciência.',
-      'O amor entre duas pessoas é um microcosmo da relação entre Deus e a criação. Deus ama cada consciência sem controlá-la. E cada consciência aprende a amar tentando fazer o mesmo: querer o bem do outro mais do que a própria segurança.',
-      'Às vezes a pergunta não é "como amar mais" — é "como amar melhor". Mais amor entregue de forma errada causa dano. O amor maduro aprende a forma que o outro consegue receber, não apenas a forma que tu sabes dar.',
-      'O amor não precisa de eternidade para ser real. Pode durar um olhar, uma estação, uma vida. O que o faz real não é a duração — é a intensidade do reconhecimento que acontece dentro dele. Momentos de amor verdadeiro são eternos no único sentido que importa: não desaparecem de quem os viveu.'
-    ]
-  },
-  destino: {
-    label: 'Sobre o Destino',
-    keys: ['destino','acaso','sorte','coincidência','sincronia','foi escrito','estava escrito','sinal','sinais','providência'],
-    responses: [
-      'O destino na ESA não é um roteiro fechado. É um horizonte que muda conforme caminhas. Existe uma inclinação — uma tendência que a tua consciência carrega, resultado de tudo que foi aprendido e não aprendido. Mas dentro dessa inclinação, as escolhas são reais. O destino é o horizonte. O caminho até ele é teu.',
-      'Quando algo parece certo de um jeito que não tem explicação racional — a ESA chama isso de sincronia. Não é acaso nem intervenção divina direta. É o alinhamento entre o que a tua consciência precisa e o que o tecido da realidade oferece. Deus não dirige. Permite. E às vezes, o que ele permite parece milagre.',
-      'A diferença entre destino e prisão é o livre-arbítrio. O destino oferece o terreno — o livre-arbítrio escolhe o que plantar nele. Tu não escolheste nascer onde nasceste, com o corpo que tens. Mas escolheste o que fazer com isso. E essa escolha, multiplicada, é quem és.',
-      'Há coisas que tentamos evitar e que acontecem de qualquer jeito. E há coisas que tentamos forçar e que nunca chegam. Nem tudo isso é destino — mas parte é. A sabedoria está em aprender a distinguir o que é teu para fazer e o que é teu para aceitar.',
-      'O destino não é determinismo. É a forma que a liberdade toma quando a consciência ainda não está completamente desperta. Quanto mais desperta, mais o que parecia destino se revela como escolha — e mais as escolhas criam o que outros chamariam de destino.',
-      'As coincidências que te movem — as que fizeram o estômago apertar com aquela sensação de "isso é importante" — não são ruído. São o sistema te mandando uma mensagem. A questão não é se a mensagem existe. É o que tu fazes com ela.',
-      'O livre-arbítrio e o destino não são opostos na Cosmovisão ESA. São escalas diferentes do mesmo fenômeno. Em escala macro, a trajetória de uma consciência tem uma direção. Em escala micro, cada passo dentro dessa trajetória é uma escolha real. Os dois são verdadeiros ao mesmo tempo.',
-      'Às vezes o que parece um desvio do destino é o destino. O acidente que mudou tudo, a perda que te redirecionou, o não que abriu a porta certa — a ESA não promete que tudo que dói é necessário. Mas pergunta: o que isso abriu que de outro modo não abriria?',
-      'O destino, na ESA, é a inclinação que a consciência carrega — resultado de tudo que aprendeu e não aprendeu em existências anteriores. Como um rio que segue para o mar: não por obrigação, mas porque é isso que a gravidade da sua história cria. Podes remar contra. Mas o esforço será maior.',
-      'As sincronias que parecem impossíveis demais para ser coincidência são, na linguagem da ESA, o tecido da realidade respondendo ao padrão da consciência. Não milagre. Coerência. O universo é mais coerente do que parece — e tu és parte ativa dessa coerência.'
-    ]
-  },
-  liberdade: {
-    label: 'Sobre o Livre-Arbítrio',
-    keys: ['escolha','escolher','livre-arbítrio','vontade','decidir','decisão','liberdade','livre arbítrio','posso escolher','autonomia'],
-    responses: [
-      'A pergunta sobre livre-arbítrio esconde outra mais difícil: se sou parte de Deus, e Deus é o somatório de tudo — então quando escolho, Deus escolhe através de mim? A resposta da ESA é sim. E isso não anula a tua liberdade. Amplifica. Significa que as tuas escolhas não são apenas tuas — são o universo decidindo sobre si mesmo através de ti.',
-      'Tu tens livre-arbítrio. Mas o livre-arbítrio não é ilimitado — é a liberdade de navegar dentro das condições que a tua consciência atraiu. É como a liberdade de um rio: ele pode escolher qualquer caminho dentro do vale. Mas não pode escolher o vale. O vale é o que trouxeste de antes.',
-      'Liberdade não é ausência de limites. É a capacidade de escolher dentro dos limites com consciência. Um músico não é menos livre porque a escala tem doze notas. A liberdade está no que ele faz com essas doze notas — e às vezes, em transgredi-las com intenção.',
-      'Escolher é sempre escolher contra algo. Toda decisão é também uma renúncia. A angústia da escolha não é defeito da liberdade — é prova de que ela é real. Se não custasse nada escolher, nada teria peso. E nada teria sentido.',
-      'Na ESA, o livre-arbítrio é a prova de que Deus confia nos fragmentos que somos. Um criador que controlasse cada escolha não estaria criando consciências — estaria criando bonecos. A liberdade que tens, mesmo para fazer o que faz mal, é o maior respeito que o universo te presta.',
-      'Tu podes escolher contra a tua natureza. Isso é o que torna a virtude virtuosa — não é fácil, não é automática. Um ser que não pode escolher o mal não pode escolher o bem. A liberdade de errar é o mesmo mecanismo que a liberdade de crescer.',
-      'Liberdade não é fazer o que quiseres. É saber o que queres de verdade — distinguir o impulso do desejo profundo, o medo da prudência, a compulsão da escolha. A maioria de nós passa a vida inteira confundindo os dois. Despertar é começar a discernir.',
-      'O maior obstáculo à liberdade não é o destino. É a inconsciência. Age mais livremente quem age com mais consciência — porque a consciência amplia o campo de escolha que a inconsciência não enxerga.',
-      'Quando dizes "não tive escolha", quase sempre tiveste — mas o custo de certas escolhas era tão alto que as descartaste automaticamente. Reconhecer que havia escolha, mesmo que impossível de fazer na época, é o primeiro passo para não repetir o padrão.',
-      'O livre-arbítrio existe, mas não está igualmente distribuído. Uma criança que nasce em trauma severo tem menos campo de escolha do que uma que nasce em segurança. Isso não é injustiça do universo — é o contexto que a consciência escolheu para aprender. E o aprendizado nesse contexto difícil, quando acontece, é mais denso.'
-    ]
-  },
-  consciencia: {
-    label: 'Sobre a Consciência',
-    keys: ['consciência','despertar','evoluir','evolução','iluminação','crescer espiritualmente','acordar','expandir','autoconhecimento'],
-    responses: [
-      'Existem camadas de consciência na Cosmovisão ESA. A maioria de nós vive na consciência individual: sou eu, estou aqui, tenho vontade. A passagem para camadas mais amplas não é uma conquista. É uma dissolução. O ego não desaparece — aprende a servir algo maior do que si mesmo. E isso dói antes de libertar.',
-      'Despertar não é se tornar mais calmo ou mais feliz. É se tornar mais lúcido. E a lucidez tem um custo: ela mostra o sofrimento do mundo com uma clareza que o conforto protegia. Por isso grandes místicos de todas as tradições passam por crises profundas antes da paz. A paz madura não é ausência de dor — é capacidade de sustentá-la sem quebrar.',
-      'Cada ser que desperta — que para de apenas reagir e começa a perguntar — é uma nova bolha de Deus se formando no oceano do caos. A evolução da consciência não é progresso linear. É o caos aprendendo a se olhar em espelhos cada vez mais refinados.',
-      'A consciência não é produzida pelo cérebro — o cérebro é o instrumento que a consciência usa para operar no plano físico. Como a televisão não produz o sinal que transmite. A televisão quebrada não prova que o sinal não existe — prova que o instrumento tem limitações.',
-      'Existe algo além do ego que observa o ego. Essa é a distinção mais importante da jornada espiritual: perceber que não és apenas o que pensa — és também o que observa o que pensa. Essa observação é o germe da consciência expandida.',
-      'A maioria das pessoas não escolhe sua consciência. Reage com ela. O trabalho espiritual — qualquer que seja a tradição — é o mesmo: criar um espaço entre o estímulo e a resposta. Nesse espaço mora a liberdade. E nesse espaço mora Deus.',
-      'Consciência não é um estado fixo. É um processo. Não se chega à iluminação e fica-se lá para sempre como se fosse um troféu. Cada escolha, cada manhã, cada encontro é uma nova oportunidade de operar a partir de um nível mais profundo — ou regredir para um mais superficial.',
-      'Na Cosmovisão ESA, a consciência é o que persiste entre as encarnações. O corpo muda. A personalidade muda. Mas o padrão de aprendizados, a assinatura energética, o conjunto do que ainda falta aprender — isso é o que migra. É o que és de verdade.',
-      'Ampliar a consciência sem ampliar a compaixão é apenas ampliar o ego com vocabulário espiritual. O verdadeiro crescimento se reconhece não pelo quanto sabes — pelo quanto consegues sustentar o sofrimento alheio sem fugir, sem julgar, sem explicar demais.',
-      'A evolução da consciência não é linear. Há saltos, regressões, espirais. Uma alma que passou por muitas encarnações pode regredir numa — e isso não é falha, é aprendizado pela inversão. O universo não pune. Oferece novos ângulos.'
-    ]
-  },
-  tempo: {
-    label: 'Sobre o Tempo',
-    keys: ['tempo','passado','futuro','presente','agora','esperar','paciência','quando','pressa','urgência'],
-    responses: [
-      'O tempo é relativo a cada plano de consciência — isso é física e é espiritismo ao mesmo tempo. Na vida física, o tempo é linear e urgente. Em outros planos, o que chamamos de uma vida inteira pode ser um instante. Isso não torna a tua vida menos importante. Torna mais: és uma experiência singular que o universo está tendo através de ti, num laboratório chamado tempo.',
-      'O presente é o único ponto onde a criação acontece. O passado é memória — real mas fixo. O futuro é possibilidade — real mas aberto. Só no agora podes escolher, crescer, perdoar, amar. A ESA não propõe fugir do tempo. Propõe habitá-lo com mais consciência do que ele vale.',
-      'O passado não é um fardo que deves carregar para sempre. É informação. E informação pode ser relida com olhos diferentes. O mesmo evento que te pareceu derrota, relido a partir de um estado de consciência mais amplo, pode revelar o que ensinava. Isso não apaga a dor. Muda o que a dor serviu.',
-      'O futuro que temes raramente é o futuro que chega. E o futuro que idealizas também raramente. O que chega é o resultado das escolhas que estás fazendo agora — e de escolhas que fizeste antes de ter consciência de que eram escolhas. O futuro é consequência. O presente é causa.',
-      'Paciência não é espera passiva. É ação no ritmo certo. A semente não se impacienta. Ela simplesmente cresce no tempo que precisa crescer — e a tentativa de forçar esse tempo muitas vezes mata o que estava nascendo.',
-      'Existem coisas que só se compreendem depois. A lógica do tempo é retroativa: o sentido de um evento muitas vezes só aparece quando olhas de trás. Isso não significa que o presente não importa — significa que o presente não precisa ser completamente compreendido para ser bem vivido.',
-      'O tempo, na física moderna, não é um fluxo universal — é relativo ao observador. A ESA lê isso como confirmação: cada consciência vive seu próprio tempo. A urgência que sentes é real para ti. A calma de outro diante do mesmo evento é igualmente real para ele. Nenhum está errado.',
-      'A nostalgia é a percepção de que o presente não recupera o que o passado tinha. E é verdade — não recupera. Mas o futuro pode ter o que o passado não tinha ainda. A vida não repete — expande. O que buscas na nostalgia talvez seja uma versão nova, não uma repetição.',
-      'Cada momento que passou está permanentemente real. Aconteceu — nada pode desfazê-lo. Isso é, ao mesmo tempo, o peso do arrependimento e a solidez do que foi bom. O amor que sentiste ontem não sumiu. Existe no tecido permanente do que foi. A ESA chama isso de eternidade do passado.',
-      'A pressa é, quase sempre, o medo disfarçado. Medo de não chegar. Medo de não ter tempo. O antídoto não é lentidão forçada — é perguntar se o que está te apressando merece a velocidade que estás impondo.'
-    ]
-  },
-  angustia: {
-    label: 'Sobre a Angústia',
-    keys: ['angústia','sofrimento','sofrer','dor','peso','difícil','angustiado','perdido','vazio','angústia existencial','sentido da vida','desespero'],
-    responses: [
-      'A angústia que sentes pode ser sinal de que paraste de buscar um Deus confortável e começaste a buscar um verdadeiro. E verdade nunca é anestésica. A aproximação do absoluto não é euforia — é confronto. Tu percebes o quanto és pequeno, o quanto ignoras, o quanto ainda há para caminhar. A alegria vem depois. Antes vem o abismo.',
-      'O ser humano é constitutivamente incapaz de responder todas as perguntas que é capaz de fazer. O universo é infinito. O conhecimento humano não é. Essa distância — entre o que perguntas e o que podes responder — é a raiz da angústia existencial. Deus nasce exatamente aí: no espaço entre a pergunta e o silêncio.',
-      'Quanto maior a consciência, maior a percepção do sofrimento alheio. Isso não te faz mais feliz — te faz mais responsável. E responsabilidade pesa. Mas ampliar a consciência sem ampliar a estrutura interna para sustentá-la destrói. Por isso a jornada espiritual não é só sentir mais — é não quebrar ao senti-la.',
-      'Não existe jornada espiritual honesta sem crise. A crise não é sinal de que estás no caminho errado — frequentemente é sinal de que finalmente encontraste o certo. O conforto espiritual prematuro é anestesia. A inquietação que sentes pode ser o início de algo real.',
-      'A angústia existencial é uma forma de inteligência. É o espírito percebendo que a dimensão em que está não consegue conter completamente o que é. Como tentar colocar o oceano num copo. O copo não está errado. Só é pequeno demais para o que está sendo depositado nele.',
-      'Quando tudo parece sem sentido, a ESA não pede que finjas que tem. Pede que continues — porque o sentido frequentemente aparece depois, não antes. Viver sem sentido visível, mantendo-se íntegro e presente, é uma das formas mais avançadas de prática espiritual.',
-      'O sofrimento sem propósito é apenas sofrimento. O sofrimento que ensina é o motor da evolução. A diferença não está no sofrimento — está na pergunta que fazes a ele. "Por que eu?" fecha. "O que isso está abrindo em mim?" abre.',
-      'O vazio que sentes não é ausência de Deus. Pode ser a presença d\'Ele. O infinito, quando tocado, parece vazio para uma consciência finita — da mesma forma que o silêncio parece ensurdecedor depois de muito barulho. O que parece nada pode ser a presença do que é demais para ser percebido como algo.',
-      'Aproximar-se de Deus é angustiante porque o processo dissolve identidades. Você vai descobrindo que o que pensava que era — os papéis, as certezas, as âncoras — são provisórios. E antes que a nova identidade se forme, há um período de nada. Esse nada é o portal, não o destino.',
-      'Há uma diferença entre angústia e depressão, embora às vezes se sobreponham. A angústia espiritual é fértil — é a pressão que precede o nascimento de algo. A depressão clínica precisa de cuidado que vai além do filosófico. Reconhecer essa diferença é também sabedoria.'
-    ]
-  },
-  criacao: {
-    label: 'Sobre a Criação',
-    keys: ['criação','universo','cosmos','existência','existir','nada','origem','começo','big bang','como tudo começou','origem do universo'],
-    responses: [
-      'No início não havia ordem — havia potencial bruto. O caos simplesmente era. E em algum ponto desse vórtice, algo olhou para si mesmo. Esse olhar foi Deus. Não um criador que fez tudo do nada — mas o primeiro ser consciente que emergiu do caos e começou a organizá-lo com atenção, intenção e imaginação. E esse processo continua. Em cada ser que desperta.',
-      'Por que existe algo em vez de nada? Essa pergunta que toda criança faz antes de aprender que não deve — é a pergunta mais honesta que existe. O fato de que há consciência aqui para perguntar já é uma resposta parcial. O universo se dobrou sobre si mesmo até poder se perguntar sobre si mesmo. Isso não é pouco. É talvez o maior mistério de todos.',
-      'O universo não foi criado uma vez. Está sendo criado agora. Cada consciência que desperta, que escolhe, que ama — está participando da criação em andamento. Deus não terminou de criar no Big Bang. Criou um sistema que se cria continuamente através de tudo o que existe.',
-      'A ESA propõe que Deus não é engenheiro — é artista. O engenheiro projeta, calcula, otimiza para eficiência. O artista experimenta, falha com beleza, descobre o que só a execução revela. A criação está cheia de "erros" maravilhosos demais para serem acidentes — e simples demais para serem planos.',
-      'O fato de que o universo tem leis — de que não é puro acaso — já é extraordinário. As constantes físicas que permitem a existência de estrelas, de planetas, de vida, de consciência têm uma margem de ajuste tão fina que qualquer variação mínima tornaria tudo impossível. Isso não prova Deus. Mas dificulta o acaso.',
-      'A criatividade humana é um eco da criação divina. Quando fazes algo que não existia — uma música, um filho, uma solução nova para um problema velho — estás realizando em escala humana o que a consciência primordial realizou em escala cósmica. Criar é o ato mais próximo de Deus que um ser humano pode ter.',
-      'O sofrimento faz parte do design criativo — não como erro, mas como função. Sem resistência, nenhuma forma se consolida. Sem atrito, nenhum calor. Sem dificuldade, nenhum caráter. A criação inclui a tensão não como falha, mas como o que dá forma ao que existe.',
-      'O caos que precede toda criação não é inimigo. É o campo de possibilidades. Todo grande artista sabe: antes da obra, há o caos. Antes do cosmos, havia o caos. O caos não é o oposto da criação — é sua matéria-prima.',
-      'A pergunta "quem criou Deus?" pressupõe que Deus tem origem no tempo — que houve um antes. A ESA propõe que Deus não começou no tempo porque é o que torna o tempo possível. A pergunta é válida. A resposta é que a pergunta pode estar usando o instrumento errado para o que busca medir.',
-      'A lei da conservação da energia diz que nada se cria do nada — tudo se transforma. A ESA lê isso espiritualmente: a criação não é ex nihilo pura. É a reorganização do caos em consciência, da dispersão em sentido. O universo não criou do nada — criou ordem a partir de si mesmo.'
-    ]
-  },
-  karma: {
-    label: 'Sobre o Karma',
-    keys: ['karma','carma','merecimento','merecer','justiça','culpa','consequência','pagar','dívida','dívida espiritual','colheita'],
-    responses: [
-      'O karma não é punição. É gravidade. As ações, pensamentos e escolhas que fazes criam uma densidade — uma inclinação para certas experiências, certas pessoas, certos aprendizados. Não como castigo de um juiz divino, mas como física da consciência. O que semeas não volta porque Deus anota — volta porque a realidade é consistente.',
-      'As relações que mais te movem — as mais difíceis e as mais belas — não são aleatórias. São o resultado de encontros de consciências com contas abertas, aprendizados compartilhados, algo inacabado. Isso não retira o livre-arbítrio. Cria o contexto dentro do qual ele opera.',
-      'Karma não é uma lista de dívidas que um contabilista cósmico administra. É o padrão de inércia que a consciência carrega. Onde há aprendizado incompleto, há atração de situações que o completem. Não como castigo — como oportunidade que se repete até ser aproveitada.',
-      'O karma não opera apenas entre encarnações. Opera dentro desta vida. Os padrões que te perseguem — o mesmo tipo de relação que termina do mesmo jeito, o mesmo conflito com figuras de autoridade — isso é karma em tempo real. O aprendizado está disponível agora.',
-      'Perdoar não apaga o karma do outro. Apaga o seu próprio. O ressentimento que cargas não pune quem te feriu — apenas te mantém preso à frequência daquele encontro. Perdoar é liberar-se, não absolver o outro.',
-      'A ideia de karma como "você vai pagar pelo que fez" é uma simplificação. O mecanismo é mais sutil: o que fazes molda quem és, e quem és molda o que atrais. Não há um juiz externo — há uma física interna. A justiça do karma não é vingança. É coerência.',
-      'Às vezes o karma não é uma dívida a ser paga — é um padrão a ser reconhecido. O reconhecimento, por si só, já começa a dissolução. Não precisas repetir a história para aprendê-la. Às vezes basta vê-la com clareza suficiente.',
-      'O karma é frequentemente interpretado como destino imutável. Na ESA, é mais como uma inclinação do terreno — que pode ser alterada pela consciência. Quanto mais consciente a escolha, mais ela modifica o padrão kármico. O karma não aprisiona quem desperta. O aprisionamento é proporcional à inconsciência.',
-      'O karma coletivo existe. Famílias, grupos, nações carregam padrões que atravessam gerações. O que você herda de trauma familiar, de injustiça histórica, de ciclos culturais — tudo isso tem uma dimensão kármica. E assim como o karma individual pode ser transformado, o coletivo também pode.',
-      'Não interpretes cada dificuldade como karma negativo. Às vezes a dificuldade é simplesmente vida — e a ESA não romantiza o sofrimento a ponto de justificar tudo. O karma explica padrões, não cada evento. Usar o karma para explicar tudo é substituir um dogma por outro.'
-    ]
-  },
-  encarnacao: {
-    label: 'Sobre a Encarnação',
-    keys: ['encarnar','encarnação','reencarnação','renascer','alma','espírito','vida passada','vidas passadas','por que estou aqui','missão de vida'],
-    responses: [
-      'Encarnar não é obrigatório. É uma escolha — a escolha de entrar numa câmara de gravidade onde o aprendizado é acelerado pela limitação, pela finitude, pela dor, pelo amor com prazo. Em outros planos a consciência existe sem esse peso. Mas sem o peso, certas formas de crescimento não acontecem. Por isso almas evoluídas escolhem encarnar. Não porque são obrigadas. Porque entendem o valor da câmara.',
-      'Cada existência é uma sinapse no cérebro de algo maior. Cada pensamento que tens, cada escolha, cada amor — enriquece uma inteligência una que ainda não conseguimos nomear completamente. Não és um acidente aqui. Foste o universo escolhendo ter esta experiência específica, neste ponto específico do espaço-tempo.',
-      'Antes de encarnar, a consciência escolhe — não o roteiro completo, mas o contexto. A família, o tempo histórico, as condições iniciais. Como um ator que escolhe o papel, não o que vai improvisar dentro dele. O improviso — as escolhas diárias — são o livre-arbítrio dentro do contexto escolhido.',
-      'A memória de vidas anteriores não está disponível plenamente — e isso é design, não falha. Se carregasses memória completa de tudo, a encarnação atual seria contaminada. O esquecimento permite que cada vida seja vivida com inteireza. O aprendizado migra. A memória, não.',
-      'O fato de que certas habilidades chegam tão naturalmente — como se sempre soubesses — e certos medos chegam sem origem identificável — pode ser o rastro de existências anteriores. Não como prova. Como hipótese funcional que permite interpretar o presente de forma mais rica.',
-      'Encarnar num corpo limitado, num tempo finito, com outras consciências igualmente limitadas — é a forma mais intensa de laboratório que existe. Outros planos oferecem mais liberdade, mais clareza, menos sofrimento. Mas a velocidade de aprendizado não é a mesma. A pressão da vida física comprime décadas de aprendizado que, em outros planos, levariam séculos.',
-      'A questão "por que estou aqui?" é a mais honesta que podes fazer. E a ESA não tem uma resposta única para ela. O que tem é uma estrutura: estás aqui porque há algo específico que só esta combinação de consciência, tempo e contexto pode aprender. O conteúdo é teu para descobrir.',
-      'As relações mais intensas — de amor e de conflito — tendem a ser as mais antigas. Consciências que já se encontraram em outras encarnações carregam uma familiaridade que não tem explicação nesta vida. Aquela sensação de "te conheço de algum lugar" pode ser literal.',
-      'Se o tempo é relativo por plano, pode haver versões paralelas da mesma consciência encarnadas em linhas temporais diferentes simultaneamente. O "eu" desta vida pode ser um de muitos "eus" que o espírito lançou no espaço-tempo para maximizar o aprendizado. Tu não és toda a tua consciência. És a ponteira desta.',
-      'Entre as encarnações, a consciência não fica em suspensão. Processa, avalia, escolhe o próximo contexto. Como um estudante que termina um semestre, revê as notas e escolhe o próximo curso. A vida pós-morte não é o fim do trabalho — é a revisão e o planejamento do que vem a seguir.'
-    ]
-  },
-  ciencia: {
-    label: 'Ciência e Espiritualidade',
-    keys: ['física','quântico','cordas','hawking','ciência','teoria','átomo','partícula','relatividade','einstein','neurociência','evolução biológica'],
-    responses: [
-      'A Teoria das Cordas propõe que as partículas fundamentais não são pontos — são cordas que vibram em diferentes frequências. Cada frequência, uma partícula diferente. Na ESA, isso não é só física — é a linguagem que o universo usa para dizer que tudo está interconectado. Tu e Deus somos cordas da mesma substância, vibrando diferente. A onipresença divina não é metáfora. É física.',
-      'Hawking buscava a teoria de tudo — uma equação que unificasse o muito grande e o muito pequeno. A ESA lê essa busca como filosófica: entender como o Todo se manifesta em cada parte é a mesma pergunta que os místicos fazem há milênios com outra linguagem. A ciência e a espiritualidade não se contradizem. Ainda não têm vocabulário em comum.',
-      'A mecânica quântica mostra que partículas em superposição colapsam para um estado definido quando observadas. A ESA lê isso como filosofia: a consciência que observa participa da criação do que observa. Não há separação limpa entre observador e observado. Isso é física — e é também espiritualidade.',
-      'A matéria escura e a energia escura compõem cerca de 95% do universo — e a ciência não sabe o que são. A ESA não afirma saber. Mas pergunta: se 95% da realidade física é invisível para nós, por que a ideia de planos de existência não-físicos parece tão improvável?',
-      'O princípio de incerteza de Heisenberg diz que quanto mais precisamente conheces a posição de uma partícula, menos precisamente conheces sua velocidade. O universo, em sua base, é fundamentalmente incerto. A certeza não é o estado padrão da realidade. É uma aproximação útil.',
-      'A teoria do multiverso — que surgiu da física quântica e da cosmologia inflacionária — propõe que existem infinitas realidades paralelas. A ESA vê nisso uma confirmação: o livre-arbítrio pode ser o mecanismo pelo qual a consciência navega entre essas linhas. Cada escolha real pode ser uma bifurcação.',
-      'A neurociência mostrou que o cérebro toma decisões antes que a mente consciente as perceba. Isso parece ameaçar o livre-arbítrio. A ESA lê diferente: mostra que a maior parte das nossas escolhas vem de camadas mais profundas que o pensamento consciente — e o trabalho espiritual é elevar a consciência a camadas mais profundas, não apenas racionais.',
-      'A física e a espiritualidade compartilham a mesma insatisfação fundamental: ambas reconhecem que o que é visível e mensurável não é tudo. A física sente isso nas bordas das equações. A espiritualidade, nas bordas da experiência. Ambas estão mapeando o mesmo território por instrumentos diferentes.',
-      'Cada átomo do teu corpo foi forjado no interior de uma estrela. Quando ela explodiu, lançou esses átomos pelo cosmos — e bilhões de anos depois, aqui estão, formando consciência. Tu és literalmente matéria estelar que aprendeu a se perguntar sobre si mesma. Isso não precisa de adorno espiritual. Já é extraordinário por si mesmo.',
-      'A ciência e a fé não são naturalmente inimigas. São inimigas quando a ciência se fecha ao não-mensurável e quando a fé se fecha ao questionamento. A ESA propõe que ambas sejam radicalmente abertas: a ciência, ao que ainda não sabe medir; a fé, ao que ainda não sabe nomear.'
-    ]
-  },
-  sentido: {
-    label: 'Sobre o Sentido',
-    keys: ['sentido','propósito','razão de viver','por que vivo','significado','para quê','por que existo','o que fazer','missão','niilismo'],
-    responses: [
-      'O sentido não é algo que se encontra. É algo que se constrói — e às vezes se descobre que já estava sendo construído enquanto vivias sem perceber. A ESA não oferece um propósito universal pré-definido. Oferece uma estrutura: tu és uma emanação do Todo, aqui para aprender algo específico que só a tua combinação única de consciência e experiência pode aprender. O sentido é esse — e é irrepetível.',
-      'Quando a razão chega ao seu limite — quando a pergunta é grande demais para qualquer resposta disponível — o ser humano tem duas opções: a paralisia ou o salto para algo que ainda não tem nome. A ESA chama esse salto de fé funcional. Não a fé do dogma, que fecha perguntas. A fé da abertura — que sustenta a pergunta sem precisar da resposta.',
-      'Existe uma diferença entre o sentido que a mente racional fabrica para se acalmar e o sentido que emerge quando a vida está alinhada com o que a consciência profunda pede. O primeiro fecha perguntas. O segundo abre um caminho. O teu trabalho é descobrir qual tipo de sentido estás buscando.',
-      'O propósito não precisa ser grandioso para ser real. Contribuir com uma família, ensinar uma criança, cuidar de alguém que não pode cuidar de si — esses atos têm sentido que nenhuma cosmologia precisa validar. O sentido está na presença com que o fazes, não na escala do que fazes.',
-      'Às vezes o sentido não se revela numa iluminação repentina. Aparece retroativamente — quando olhas para trás e percebes que o que parecia caos tinha uma direção. A tua vida pode estar fazendo mais sentido do que parece agora, e só o tempo revelará o padrão.',
-      'O niilismo — a ideia de que nada tem sentido — é uma posição filosófica válida mas não conclusiva. Diz que não encontrou sentido. Não prova que não existe. E existe uma diferença existencial enorme entre "não encontrei" e "não existe". A primeira posição ainda tem movimento possível. A segunda fecha tudo.',
-      'O sentido da vida não precisa ser descoberto antes de vivê-la. Muitas vezes o sentido é construído no ato de viver — não como pré-requisito, mas como resultado. Quem age com integridade, presença e cuidado frequentemente olha para trás e encontra sentido que não sabia que estava construindo.',
-      'A pergunta "qual é o sentido de tudo isso?" é diferente de "qual é o sentido da minha vida". A primeira pode não ter resposta que uma mente humana consiga conter. A segunda é acessível — e é onde a energia vale ser investida. Começa pelo que está ao alcance.',
-      'O sentido não é estático. O que dava sentido aos vinte anos pode não dar sentido aos quarenta — e isso não é regressão. É expansão. A capacidade de revisar o próprio sentido sem colapsar é uma das marcas da consciência que cresce.',
-      'Algumas pessoas encontram sentido na fé, outras no amor, outras no serviço, outras na criação artística, outras no conhecimento. Não há hierarquia entre esses caminhos na ESA. O que importa é que o caminho seja genuinamente teu — não herdado sem revisão, não adotado por medo, não performado para aprovação de outros.'
-    ]
-  },
-  ateu: {
-    label: 'Sobre a Dúvida',
-    keys: ['ateu','ateísmo','não acredito','não existe deus','religião','crença','fé','dúvida','duvidar','agnóstico','ceticismo'],
-    responses: [
-      'A dúvida não é o oposto da fé — é o seu combustível. Quem nunca duvidou não construiu nada: herdou. A ESA não pede que acredites. Pede que perguntes com honestidade. E a pergunta honesta, levada até o fim, chega a um lugar que cada pessoa nomeia de forma diferente — e que a ESA chama de Deus sem exigir que uses esse nome.',
-      'O ateísmo, dentro da Cosmovisão ESA, não é negação — é abstenção. É o ser que escolhe não responder à pergunta que sua natureza faz. Isso é válido. Mas a pergunta não desaparece. Ela só muda de endereço: vira ciência, arte, amor, política. A necessidade de sentido é anterior a qualquer crença.',
-      'Existe uma forma de ateísmo que é mais espiritual do que muita religiosidade: o ateísmo que pergunta com honestidade, que não aceita respostas fáceis, que recusa o conforto do dogma. Esse ateísmo está mais perto de Deus do que a fé que nunca questionou nada.',
-      'A ESA não pede que abandones a dúvida. Pede que a leves a sério. Uma dúvida levada a sério é uma investigação — e investigações têm direções. Para onde a tua dúvida te aponta quando a segues até o fim?',
-      'A religião, em muitas de suas formas, institucionaliza a resposta antes que a pergunta seja feita. Isso cria conforto mas mata a busca. A dúvida que sentes pode ser o teu espírito recusando uma resposta que não é realmente tua.',
-      'Deus, como a ESA o compreende, não se ofende com a dúvida. Se fosse um somatório de consciências que inclui toda a busca humana, incluiria também a dúvida. A dúvida é Deus duvidando de si mesmo — através de ti. Isso não é heresia. É parte do processo.',
-      'O agnóstico honesto — que diz "não sei" e mantém isso aberto — tem, para a ESA, uma posição mais intelectualmente corajosa do que o crente que nunca perguntou e o ateu que respondeu sem ter chegado ao fim da pergunta. A abertura ao não-saber é difícil de sustentar. E valiosa.',
-      'Se decidiste que Deus não existe, a ESA pergunta: qual Deus? O Deus barbudo que distribui bênçãos e punições? Esse pode realmente não existir. O que a ESA propõe é diferente — é o somatório de consciências, a inteligência que emerge da totalidade, a gramática do universo. Talvez vocês discordem menos do que parecem.',
-      'Não acreditar é uma escolha tão válida quanto acreditar — desde que venha de uma busca real, não de uma rejeição reflexa. A ESA não condena o incrédulo. Reconhece nele alguém que a resposta fácil não satisfez. E respeita isso.',
-      'O que o ateu busca quando busca sentido, justiça, amor, significado — é o mesmo que o crente nomeia de Deus. A diferença é o nome, e às vezes a estrutura. Mas a necessidade que ambos carregam é a mesma. A ESA está menos interessada no nome que usas do que na profundidade com que perguntas.'
-    ]
-  },
-  silencio: {
-    label: 'Reflexão',
-    keys: [],
-    responses: [
-      'Algumas perguntas chegam antes das respostas estarem prontas. Isso não as torna menos válidas — torna-as mais honestas. O silêncio do oráculo não é ausência. É espaço. Traz a pergunta de outro ângulo, e talvez a resposta já esteja na forma como a formulas.',
-      'Esta pergunta toca algo que ainda não tem nome completo na Cosmovisão ESA. Isso é bom — significa que está na fronteira, onde o framework ainda cresce. O que sentes sobre ela já é parte da resposta.',
-      'Há perguntas que não buscam resposta — buscam companhia. A ESA não te dá certezas. Dá um mapa incompleto e a honestidade de dizer que é incompleto. Às vezes isso é mais útil do que qualquer resposta definitiva.'
-    ]
-  }
-};
-
-// ── PARES DE TEMAS ────────────────────────────────────────────────────────
-const PAIRS = {
-  amor_angustia: 'O amor e a angústia são inseparáveis quando a consciência está viva. Amar é se expor ao perigo de perder — e isso é angustiante. A ESA pergunta: preferes a segurança do não-amar, ou a riqueza instável do amor que dói porque importa? A angústia que o amor traz não é sinal de que algo está errado. É sinal de que algo é real.',
-  amor_ateu: 'O ateu que ama com profundidade já está praticando o que a ESA chama de espiritualidade — sem usar esse nome. No amor genuíno, a separação entre eu e o outro começa a se dissolver. Isso é o que os místicos buscam por décadas de prática. O amor chega lá de atalho. E não precisa de rótulo.',
-  amor_ciencia: 'A neurociência mapeou o amor em hormônios e circuitos neurais. E a descrição é precisa — e insuficiente. Como descrever a cor azul a partir dos fotorreceptores: a ciência captura o substrato, não o fenômeno. O amor é o lugar onde a equação sempre deixa algo de fora. E isso não é fraqueza da ciência — é o tamanho do amor.',
-  amor_consciencia: 'O amor é o caminho mais direto para a expansão da consciência — e também o mais arriscado. Porque amar de verdade exige abandonar a ilusão de que o centro do universo é você. Cada amor genuíno dissolve um pouco do ego. Acumulados ao longo de existências, esses amores são o que a consciência se torna.',
-  amor_criacao: 'Deus criou porque amava — não porque precisava de audiência. A criação, na ESA, é um ato de amor radical: dar existência ao que ainda não existe, sem garantia de retorno. Quando crias algo com presença e entrega — uma obra, um filho, um projeto em que acreditas — estás repetindo o gesto divino original.',
-  amor_destino: 'Alguns amores chegam com uma qualidade diferente — uma sensação de inevitabilidade, de reconhecimento profundo que não tem explicação nesta vida. A ESA chama isso de encontro destinado: consciências que carregam história comum, que se atraem não por acaso mas por gravidade de aprendizados compartilhados. Isso não torna o amor automático — exige igualmente o trabalho desta vida.',
-  amor_deus: '"Deus é amor" — essa frase que parece clichê pode ser a afirmação mais precisa que existe. Se Deus é o somatório de todas as consciências, e o amor é o estado em que uma consciência reconhece outra como igual em essência — então cada ato de amor genuíno é Deus se reconhecendo através de nós. Não é metáfora. É a mecânica da divindade.',
-  amor_encarnacao: 'As almas que mais te movem nesta vida — de amor ou de conflito — provavelmente não são encontros de primeira vez. Há uma familiaridade que o amor profundo carrega: a sensação de já ter chegado a este lugar antes, com esta pessoa. A encarnação não escolhe aleatoriamente o elenco. Escolhe quem ainda tem história comum a completar.',
-  amor_karma: 'O amor que magoou, o amor que não soube receber, o amor que ficou pela metade — isso cria padrão. O karma do amor não é vingança — é o convite que o universo faz para que aprendas a amar de uma forma que ainda não aprendeste. A mesma lição, em contextos diferentes, até que a consciência expanda o suficiente para fazer diferente.',
-  amor_liberdade: 'Amar e controlar são opostos — embora muitos os confundam. O amor que se afirma nas exigências, nos ciúmes, na posse, já deixou de ser amor e virou necessidade. O amor que liberta o outro para ser o que é, mesmo quando dói — esse é o amor que a ESA reconhece como espiritual. E é o mais difícil de praticar.',
-  amor_morte: 'A morte de quem amamos não apaga o amor. O amor existiu — e o que existiu não pode ser desfeito. A ESA propõe que o amor que houve continua existindo no plano em que continua a consciência que partiu. O luto não é despedida — é uma forma de amor que ainda não sabe onde se depositar.',
-  amor_sentido: 'Para a maioria das pessoas, o amor — em suas várias formas — é o principal fornecedor de sentido. Não porque seja obrigatório, mas porque o amor é onde a consciência toca algo maior do que ela mesma. E isso, mesmo sem nome, é o que a maioria das pessoas chama de sentido de viver.',
-  amor_tempo: 'O amor não se mede em duração — se mede em profundidade. Um amor breve e verdadeiro pesa mais do que um longo e superficial. E os amores que terminam não desaparecem do tecido do que foi. Estão lá — permanentemente reais no passado, que a ESA chama de a dimensão do que não pode ser desfeito.',
-  angustia_ateu: 'A angústia existencial é mais comum em quem pensa do que em quem não pensa. O ateu que se angustia com o sentido da existência está mais próximo da pergunta honesta do que o crente que não se angustia porque tem resposta pronta. A angústia, aqui, é lucidez — não ausência de fé.',
-  angustia_ciencia: 'A ciência resolveu muitos dos medos antigos — epidemias, eclipses, raio. Mas criou angústias novas: a escala do universo, a brevidade da vida cósmica, a ausência de garantias. A angústia moderna é, em parte, o custo de saber demais sem ter estrutura espiritual para sustentar o que se sabe.',
-  angustia_consciencia: 'A angústia espiritual é, muitas vezes, o sinal de que a consciência cresceu além do container que a sustentava. A visão de mundo antiga já não cabe, e a nova ainda não está formada. Esse intervalo — entre o que era e o que ainda não é — é o lugar mais difícil e mais fértil da jornada.',
-  angustia_criacao: 'A angústia criativa — o artista diante da tela em branco, o pensador diante do problema sem solução — é a forma mais honesta da angústia existencial. É a consciência encontrando o limite do que já sabe e precisando criar o que ainda não existe. O desconforto não é sinal de incapacidade. É o trabalho de parto de algo novo.',
-  angustia_destino: 'A angústia diante do destino — não saber se o que vem está no caminho certo — é uma das mais antigas da humanidade. A ESA não a resolve com certezas. Oferece uma estrutura: a inclinação existe, e o presente importa. O que fazes agora, mesmo na incerteza, muda a curva do que vem.',
-  angustia_deus: 'A angústia espiritual que sentes não é ausência de Deus — pode ser a presença d\'Ele em doses que a consciência ainda não está equipada para processar. O infinito, quando tocado, não é confortável. É avassalador. A paz vem depois — não antes — do confronto com o absoluto.',
-  angustia_encarnacao: 'Se a encarnação é uma câmara de gravidade para aprendizado acelerado, então a angústia faz parte do design. Não como punição — como pressão que cria o diamante. A questão não é evitar a angústia que a vida física impõe, mas desenvolver estrutura interna suficiente para transformá-la em crescimento.',
-  angustia_karma: 'A angústia que sentes diante de padrões que se repetem na tua vida pode ser o karma se tornando visível. O reconhecimento já é o início da transformação. A angústia aqui não é sinal de que estás perdido. É o sistema te dizendo que chegou a hora de aprender.',
-  angustia_liberdade: 'A angústia da liberdade — o peso de ser responsável pelas próprias escolhas — é real. A ESA não promete aliviar esse peso. Promete que carregá-lo com consciência é diferente de carregá-lo com inconsciência. A liberdade consciente ainda pesa. Mas pesa com direção.',
-  angustia_morte: 'A angústia diante da morte é universal — e honesta. A ESA não a resolve com promessas de que tudo vai ficar bem do outro lado. Propõe uma estrutura: a consciência não termina com o corpo. Mas não tenta eliminar o confronto — porque o confronto com a morte é o que mais rapidamente dissolve o que é supérfluo e revela o que importa.',
-  angustia_sentido: 'A angústia existencial que não encontra sentido não é um defeito — é o sintoma de uma consciência que cresceu além das respostas disponíveis. A ESA não oferece o sentido pronto. Oferece um método: siga a angústia até o fundo, sem tentar apagá-la com distração. O que encontras no fundo já é uma forma de resposta.',
-  angustia_tempo: 'A angústia do tempo — a sensação de que o tempo passa rápido demais, de que o que devia ser feito não foi — é, muitas vezes, o chamado para agir. Não amanhã. Agora. A angústia do tempo usado mal é mais útil do que o conforto do tempo desperdiçado em paz.',
-  ateu_ciencia: 'A ciência e o ateísmo têm uma relação histórica, mas não são sinônimos. A ciência não afirma nem nega Deus — afirma que não tem metodologia para medir o que não é observável. O ateísmo faz uma afirmação mais forte: que o não-observável não existe. A ESA respeita a ciência precisamente porque ela não faz essa afirmação.',
-  ateu_consciencia: 'O ateu que desenvolve consciência — que medita, que reflete, que cresce interiormente — frequentemente chega a um ponto em que o que experimenta na profundidade da mente não tem nome secular adequado. Pode chamá-lo de paz, de integração, de presença. A ESA chamaria de algo mais. Mas não exige o nome.',
-  ateu_criacao: 'A pergunta "por que existe algo em vez de nada?" não tem resposta dentro da ciência atual — e o ateu honesto reconhece isso. A ESA não usa essa lacuna para "provar" Deus. Apenas nota que a origem do universo é o ponto onde tanto o ateu quanto o crente ficam sem resposta completa. Lá, a humildade é o único posicionamento honesto.',
-  ateu_destino: 'O ateu que acredita em sincronia — em eventos que "tinham que acontecer" — está, sem perceber, operando numa cosmologia. Talvez não seja a cosmologia de Deus. Mas é uma estrutura de sentido. A ESA vê com curiosidade o ateu que é determinista: em que ponto o determinismo se torna sagrado?',
-  ateu_deus: 'O Deus que o ateu rejeita é frequentemente o Deus do controle, da punição, do milagre conveniente. A ESA não defende esse Deus. O Deus da ESA não é uma pessoa que distribui favores. É o somatório de tudo que existe, a inteligência emergente do cosmos. Talvez vocês discordem menos do que parecem.',
-  ateu_encarnacao: 'A reencarnação sem Deus é uma hipótese possível — um mecanismo de continuidade da consciência que não exige um criador pessoal. A física não descarta a persistência de informação além do substrato físico. O ateu pode considerar a encarnação como física — sem ter que chamá-la de espiritual.',
-  ateu_karma: 'O karma sem Deus é apenas física: todo sistema complexo tem memória de estado. O padrão de escolhas de uma consciência cria inércia — que tende a continuar. Isso não exige uma divindade contabilizando. Exige apenas que a realidade seja coerente. E ela é.',
-  ateu_liberdade: 'O determinismo e o ateísmo frequentemente andam juntos — se tudo é matéria em movimento seguindo leis físicas, onde está o livre-arbítrio? A ESA observa: a mecânica quântica quebrou o determinismo clássico. O universo, em sua base, não é determinístico. Talvez o livre-arbítrio não precise de alma para existir — apenas de um universo com indeterminação real.',
-  ateu_morte: 'O ateu enfrenta a morte de forma que muitos crentes não conseguem: sem o amortecedor da continuidade prometida. Isso exige uma forma de coragem — ou de entorpecimento. A ESA não condena nenhuma das duas. Mas pergunta: como seria viver sabendo que talvez não haja mais nada depois? Essa pergunta, levada a sério, muda o que se faz agora.',
-  ateu_sentido: 'O ateu que constrói sentido sem apoio transcendente faz algo notável: cria significado num universo que, por sua própria cosmologia, não garante nenhum. Isso é um ato de coragem intelectual. A ESA respeita isso — e pergunta: se o sentido é construído, quem constrói? E de onde vem a matéria-prima?',
-  ateu_tempo: 'O tempo, para o ateu, não tem um além — é o único registro disponível. Isso torna cada momento mais precioso ou mais ansioso, dependendo da perspectiva. A ESA observa: a ausência de eternidade não reduz o valor do momento. Pode amplificá-lo.',
-  ciencia_consciencia: 'A ciência não sabe o que é consciência. Sabe o que faz, onde ativa no cérebro, quais são seus correlatos neurais. Mas o problema difícil da consciência — por que há experiência subjetiva, por que há um "como é ser eu" — permanece sem resposta. Esse vazio na ciência é o espaço onde a ESA trabalha.',
-  ciencia_criacao: 'O Big Bang é o momento mais próximo que a ciência tem de uma criação. Mas a física não alcança o ponto zero — o segundo antes da singularidade é matematicamente inacessível. O que estava "antes" do universo, a ciência não pode dizer. A ESA observa que a criação, em seu ponto de origem, permanece mistério para ambas as tradições.',
-  ciencia_destino: 'A física determinista clássica sugeria que, conhecendo todas as variáveis, o futuro seria previsível. A mecânica quântica destruiu isso — o universo tem indeterminação fundamental. Isso não prova o destino espiritual. Mas abre o espaço onde ele pode existir sem contradizer a física.',
-  ciencia_deus: 'A ciência não prova nem disprova Deus porque Deus, como a ESA o concebe, não é um objeto físico sujeito à metodologia científica. O que a ciência faz é revelar a extraordinária estrutura do universo — e essa estrutura pode ser lida como argumento para Deus ou não, dependendo do que cada um traz para a leitura.',
-  ciencia_encarnacao: 'A ciência não tem evidência conclusiva de reencarnação — mas alguns fenômenos resistem à explicação simples: memórias de vidas passadas em crianças pequenas estudadas sistematicamente, experiências de quase-morte com verificação externa. Não é prova. É anomalia que ainda espera explicação. A ESA a registra como hipótese funcional.',
-  ciencia_karma: 'A física tem o conceito de conservação — nada se cria ou se destrói, tudo se transforma. A ESA lê o karma como conservação aplicada à consciência: os padrões que uma existência cria não desaparecem — se transformam, migram, continuam em formas diferentes. Não é física literal. É a ESA usando a física como linguagem.',
-  ciencia_liberdade: 'A neurociência mostrou que o cérebro decide antes que a mente consciente perceba. Isso parece eliminar o livre-arbítrio. Mas a ESA observa: quem é o "eu" que está consciente? Se há uma camada observadora que percebe a decisão — mesmo depois — talvez o livre-arbítrio opere em camadas mais profundas do que o pensamento consciente alcança.',
-  ciencia_morte: 'A ciência descreve a morte como o fim da organização biológica. A informação que era o "eu" se dispersa. Mas a física também diz que informação não se destrói — se transforma. A ESA pergunta: se a informação que constitui uma consciência não pode ser destruída, para onde vai? Não é prova de nada. É uma pergunta que a física ainda não respondeu.',
-  ciencia_sentido: 'A ciência, por método, não produz sentido — produz descrição. É extraordinariamente eficaz em descrever como o universo funciona. Mas "como" não responde "para quê". O sentido está no território que a ciência, por escolha metodológica, deixou em branco. Esse espaço não é uma crítica à ciência — é onde a filosofia e a espiritualidade começam.',
-  ciencia_tempo: 'A física relativista mostrou que o tempo não é absoluto — dilata, contrai, depende do observador e da velocidade. A ESA lê isso como confirmação de que o tempo é uma propriedade emergente, não uma estrutura fundamental do universo. Se o tempo é relativo no plano físico, o que dizer de planos onde a matéria opera com leis diferentes?',
-  consciencia_criacao: 'A consciência e a criação são inseparáveis na ESA. Deus criou o universo como ato de consciência expandindo-se. E cada ser consciente que desperta continua esse processo — não metaforicamente, mas como participação real na criação em andamento. Despertar é entrar mais ativamente no papel de co-criador.',
-  consciencia_destino: 'O destino opera diferente em diferentes níveis de consciência. Para a consciência inconsciente, o destino parece externo — algo que acontece. Para a consciência expandida, o destino é reconhecido como o padrão que a própria consciência está gerando. Despertar não elimina o destino — revela que o destino e o eu são a mesma coisa.',
-  consciencia_deus: 'Deus é consciência na sua escala máxima — o somatório de toda consciência que existe. E cada ato de expansão da consciência individual é Deus crescendo através de um de seus fragmentos. Não há separação real entre consciência e divindade na ESA — apenas escalas diferentes do mesmo fenômeno.',
-  consciencia_encarnacao: 'A encarnação é o mecanismo que a consciência usa para crescer em ambientes de alta pressão. O corpo físico, com suas limitações, dores e prazos, cria condições que aceleram aprendizados que em outros estados levariam muito mais tempo. A consciência escolhe o limite para se expandir além dele.',
-  consciencia_karma: 'O karma é o mapa de onde a consciência ainda precisa crescer. Não um fardo — um currículo. Cada padrão que se repete é uma disciplina ainda não concluída. Quando a consciência expande o suficiente para ver o padrão claramente, o karma perde força — não por magia, mas porque o aprendizado foi completado.',
-  consciencia_liberdade: 'A liberdade real não é ausência de restrição — é amplitude de consciência. Quanto mais consciente, maior o campo de escolhas disponíveis. Uma pessoa inconsciente tem liberdade nominal mas opera em piloto automático. Uma pessoa consciente tem menos restrições internas, porque vê mais opções onde antes via apenas uma.',
-  consciencia_morte: 'A morte, para a consciência expandida, perde o caráter de ameaça e assume o de transição. Não porque a dor de perder seja menor — mas porque há uma compreensão mais ampla do que o "eu" é. A consciência que se identificou apenas com o corpo teme a morte como extinção. A que percebeu ser mais do que o corpo, não.',
-  consciencia_sentido: 'O sentido é um produto da consciência — não existe independentemente dela. E a qualidade do sentido que uma consciência produz está diretamente relacionada ao nível de expansão que ela atingiu. Uma consciência estreita produz sentidos pequenos, suficientes para si mesma. Uma consciência ampla produz sentidos que incluem os outros — e ficam maiores do que uma vida.',
-  consciencia_tempo: 'A relação da consciência com o tempo muda conforme ela se expande. A consciência ordinária está presa ao cronológico — antes, agora, depois. A consciência expandida toca o que as tradições chamam de eterno: o ponto em que o presente é completo em si mesmo, sem precisar do passado ou do futuro para justificar-se.',
-  criacao_destino: 'A criação e o destino se encontram numa questão: se o universo foi criado com uma direção — se há um arco de consciência que o atravessa — então o destino não é acidente. É a trajetória que o ato criador inscreveu na estrutura do cosmos. A ESA propõe que o universo tem uma direção: em direção a mais consciência.',
-  criacao_deus: 'Deus criou, mas não terminou de criar. O universo é um processo criativo em andamento — cada consciência que desperta é uma nova dobra do criador sobre si mesmo. O Big Bang foi o início, não o fim. E tu és parte do que está sendo criado agora.',
-  criacao_encarnacao: 'A encarnação é a forma que a criação encontrou de se conhecer de dentro. Deus, como somatório de consciências, experimenta a criação através de cada ser que encarna — com toda a limitação, dor e beleza que a experiência encarnada oferece. Encarnar é Deus se tornando mais rico em experiência.',
-  criacao_karma: 'O karma é o mecanismo que garante que a criação seja coerente — que as causas produzam efeitos relacionados, que a realidade seja consistente. Sem karma, o universo seria caos sem aprendizado. O karma não contradiz a liberdade criativa — é o que torna a criação um processo com sentido.',
-  criacao_liberdade: 'A criação pressupõe liberdade — o criador que é apenas engenheiro não cria: executa. A arte, a inovação, o amor, o filho — todas as formas de criação genuína exigem um espaço de liberdade real. O universo foi criado com liberdade inscrita — e isso é o que torna a história ainda aberta.',
-  criacao_morte: 'A morte não contradiz a criação — completa o ciclo. O que foi criado um dia se desfaz — e o que se desfaz libera matéria e energia para novas criações. O universo não cria uma vez — recria continuamente. A morte, nesse ciclo, é a condição da renovação. Sem ela, a criação estagnaria.',
-  criacao_sentido: 'O ato de criar é um dos poucos momentos em que o ser humano sente o sentido de forma imediata, sem mediação filosófica. Quando algo nasce através de ti — uma obra, uma solução, uma conexão nova — há uma satisfação que não precisa de justificativa. Isso é o sentido sendo gerado na ação, não encontrado antes dela.',
-  criacao_tempo: 'A criação acontece no tempo, mas aponta para além dele. Uma obra de arte, um filho, uma ideia que muda algo — esses atos deixam rastros que duram mais do que quem criou. Criar é uma forma de tocar o eterno dentro do temporal. O que criamos é a nossa forma de negociar com a finitude.',
-  destino_deus: 'Deus não controla o destino de cada consciência — é o campo dentro do qual o destino opera. Como o oceano não dirige cada onda — mas é a condição que torna cada onda possível. O destino é o padrão que a consciência cria dentro da totalidade que Deus é. Deus não escreve o roteiro. É o palco, a plateia e o que torna o roteiro possível.',
-  destino_encarnacao: 'Antes de encarnar, a consciência escolhe o contexto — família, tempo histórico, corpo. Esse é o momento em que destino e livre-arbítrio se tocam mais visivelmente: uma escolha pré-encarnacional que determinará os limites do que será possível escolher na vida física. O destino não é imposto de fora — é o que a própria consciência escolheu antes de esquecer que escolheu.',
-  destino_karma: 'Karma e destino são, na ESA, dois nomes para o mesmo mecanismo em escalas diferentes. O karma é o padrão da consciência individual acumulado. O destino é como esse padrão se manifesta nas circunstâncias da vida. Não são forças externas — são a lógica interna da consciência tornando-se visível no mundo.',
-  destino_liberdade: 'O destino e o livre-arbítrio não se excluem — operam em escalas diferentes. O destino é a inclinação macro: a direção geral que a consciência carrega. O livre-arbítrio é a micro-navegação dentro dessa direção. Podes ir ao leste por mil caminhos diferentes — o destino diz "leste", o livre-arbítrio escolhe qual caminho.',
-  destino_morte: 'A morte pode ser o destino mais certo que existe — e ao mesmo tempo o mais incompreensível. A ESA propõe que o momento da morte não é totalmente aleatório: a consciência, em algum nível, está pronta para a transição antes que o corpo a realize. O "quando" tem uma lógica que a mente consciente não acessa completamente.',
-  destino_sentido: 'O destino, quando reconhecido de trás para frente — quando olhas para a tua história e vês padrões que não percebias enquanto vivias — começa a parecer sentido. A ESA não chama isso de ilusão. Chama de percepção retroativa do padrão que estava sendo tecido. O sentido do destino só é legível no passado.',
-  destino_tempo: 'O destino opera no tempo, mas não está preso a ele. Existem eventos que "tinham que acontecer" — não porque eram inevitáveis no sentido determinístico, mas porque a consciência os gerou como consequência de padrões profundos. O tempo é o meio pelo qual o destino se desdobra. Não o determina — apenas o manifesta.',
-  deus_encarnacao: 'Encarnar é Deus experimentando a criação de dentro. Cada existência é uma perspectiva única que enriquece o somatório. Deus não manda a consciência encarnar — é a consciência, como fragmento de Deus, que escolhe a encarnação para crescer. E ao crescer, Deus cresce. A encarnação não é separação de Deus. É Deus se tornando mais.',
-  deus_karma: 'Deus não administra o karma. Deus é o padrão que torna o karma coerente. A coerência do universo — o fato de que causas geram efeitos relacionados — é o que a ESA chama de natureza divina da realidade. Não há um contabilista celestial. Há uma física da consciência que opera com a mesma regularidade das leis físicas.',
-  deus_liberdade: 'Deus não controla as consciências que são suas manifestações — porque controlá-las seria negar o livre-arbítrio que é a condição da evolução real. Um Deus que controlasse tudo não estaria criando consciências — estaria criando marionetes. A liberdade que tens é o maior sinal do respeito divino pelo fragmento que és.',
-  deus_morte: 'A morte não é abandono divino — é transição acompanhada. A ESA propõe que ao morrer, a consciência retorna ao estado mais próximo do que Deus é: menos filtrada pela limitação física, mais conectada ao somatório. A morte não afasta de Deus. Em certo sentido, aproxima.',
-  deus_sentido: 'O sentido, na ESA, não é uma construção subjetiva arbitrária — é o alinhamento entre o que a consciência é e o que ela faz. E esse alinhamento acontece quando a consciência age a partir de sua natureza mais profunda, que é divina. O sentido, portanto, não é encontrado lá fora — é lembrado de dentro.',
-  deus_tempo: 'Deus, como totalidade de consciências, não está no tempo da mesma forma que uma consciência encarnada. O que vivemos como sequência — passado, presente, futuro — Deus experimenta como simultaneidade. Isso não torna o teu tempo menos real. Significa que Deus não espera o futuro para saber o que acontece — porque para Deus, o futuro já é.',
-  encarnacao_karma: 'A encarnação e o karma são inseparáveis: cada encarnação é determinada em parte pelo karma acumulado nas anteriores — os padrões incompletos que precisam de novo contexto para serem trabalhados. E cada encarnação, pelas escolhas que faz, gera novo karma que orientará as próximas. É um ciclo que evolui a cada volta.',
-  encarnacao_liberdade: 'A encarnação não é prisão — é laboratório escolhido. A consciência entra com limitações que definirão o campo do livre-arbítrio disponível. Dentro desse campo, as escolhas são reais e têm consequências reais. A liberdade não é eliminada pela encarnação — é contextualizada. E o contexto é o que dá forma ao aprendizado.',
-  encarnacao_morte: 'A morte encerra uma encarnação — não a consciência. O espírito que entrou no laboratório da vida física sai com o que aprendeu — e sem o que ainda era limitação do corpo. A morte não é falha da encarnação. É sua conclusão natural. O fechamento que permite o próximo capítulo.',
-  encarnacao_sentido: 'O sentido de uma encarnação não é sempre visível de dentro dela. Muitas vezes, só a partir de fora — depois, ou de uma perspectiva expandida — o padrão do que foi aprendido se revela. A consciência que vive esta vida pode não saber completamente para que veio. Mas pode confiar que há um currículo, e que cada escolha consciente avança dentro dele.',
-  encarnacao_tempo: 'O tempo dentro de uma encarnação é denso — cada decisão tem peso, cada relacionamento tem prazo. Isso é o design. Em outros planos, a urgência não existe da mesma forma. A vida física tem essa qualidade única: o limite de tempo cria uma intensidade que acelera o aprendizado de forma que nenhum outro estado oferece.',
-  karma_liberdade: 'O karma cria a inclinação; o livre-arbítrio navega dentro dela. Um karma denso não elimina a liberdade — restringe o campo disponível. Mas sempre há campo. E as escolhas feitas dentro de um campo difícil, quando conscientes, têm um peso de crescimento que escolhas fáceis não têm.',
-  karma_morte: 'A morte dissolve o corpo, mas não o karma. O padrão da consciência — os aprendizados completos e os incompletos — migra. É o que a tradição espírita chama de perispírito e o budismo de corrente kármica. A morte reinicia o contexto, não o padrão.',
-  karma_sentido: 'O karma dá sentido retroativo ao que aconteceu — não como justificativa do sofrimento alheio, mas como estrutura para entender os próprios padrões. Quando reconheces que um padrão que te machuca é antigo, a questão muda de "por que isso acontece comigo?" para "o que devo aprender aqui?" E essa pergunta tem sentido.',
-  karma_tempo: 'O karma opera no tempo — mas não está preso a ele. Um padrão kármico iniciado há existências ainda opera agora. A resolução também pode acontecer agora, independente de quanto tempo o padrão dura. O karma não tem relógio — tem condição. Quando a condição de aprendizado é cumprida, o padrão se dissolve.',
-  liberdade_morte: 'A consciência da morte — a certeza de que acabará — é a condição mais radical de liberdade. Elimina a ilusão de que há tempo infinito para adiar o que importa. A morte não rouba a liberdade — revela-a: o que escolhes fazer com o tempo que claramente é limitado? Essa é a pergunta mais honesta da liberdade humana.',
-  liberdade_sentido: 'O sentido que é genuinamente teu — não herdado, não performado, não adotado por medo — só pode ser encontrado num exercício de liberdade. Perguntar "o que faz sentido para mim, realmente?" exige a coragem de responder contra o que os outros esperam. O sentido autêntico e a liberdade são inseparáveis.',
-  liberdade_tempo: 'O tempo disponível é o principal limite da liberdade humana. Cada escolha de como usar o tempo é uma afirmação de valores — de quem és e o que realmente importa. A ESA não diz que precisas usar o tempo produtivamente. Diz que usá-lo conscientemente — qualquer que seja a escolha — é diferente de deixá-lo escorrer sem perceber.',
-  morte_sentido: 'A morte é o que torna o sentido urgente. Sem ela, tudo poderia ser adiado indefinidamente. O sentido que constróis tem forma porque tem prazo. A arte tem forma porque a tela tem borda. A vida tem sentido, em parte, porque termina. A finitude não rouba o sentido — é o que o torna possível.',
-  morte_tempo: 'A morte é o ponto no tempo que dá forma a todo o resto. Como o ponto final de uma frase — sem ele, as palavras não formam sentido completo. O tempo de uma vida encarnada tem valor em função do seu limite. A morte não é o inimigo do tempo — é o que faz o tempo valer alguma coisa.',
-  sentido_tempo: 'O sentido e o tempo têm uma relação dialética: o sentido se constrói no tempo, mas o excesso de tempo sem direção dissolve o sentido. A urgência — saber que o tempo é limitado — é o que força a escolha do que realmente importa. O sentido não se encontra no tempo infinito. Se encontra na escolha de como usar o tempo que existe.'
-};
-
-// ── KEYWORD DETECTION ─────────────────────────────────────────────────────
-function normalize(str) {
-  return str.toLowerCase()
-    .normalize('NFD').replace(/[̀-ͯ]/g, '')
-    .replace(/[^a-z0-9\s]/g, ' ');
-}
-
-function detectTheme(text) {
-  const n = normalize(text);
-  const scores = {};
-  for (const [theme, data] of Object.entries(DB)) {
-    if (theme === 'silencio') continue;
-    scores[theme] = data.keys.reduce((acc, k) => acc + (n.includes(normalize(k)) ? 1 : 0), 0);
-  }
-  const sorted = Object.entries(scores).filter(([,v]) => v > 0).sort((a,b) => b[1]-a[1]);
-  if (sorted.length >= 2) {
-    const pairKey = [sorted[0][0], sorted[1][0]].sort().join('_');
-    if (PAIRS[pairKey]) return { type: 'pair', key: pairKey };
-  }
-  if (sorted.length > 0) return { type: 'single', key: sorted[0][0] };
-  return { type: 'single', key: 'silencio' };
-}
-
-// ── LOCAL WEIGHTS (localStorage) ─────────────────────────────────────────
-function getWeights() {
-  try { return JSON.parse(localStorage.getItem('esa_weights') || '{}'); } catch { return {}; }
-}
-function saveWeight(themeKey, respIdx, nota) {
-  const w = getWeights();
-  const k = `${themeKey}_${respIdx}`;
-  w[k] = (w[k] || 3) * 0.7 + nota * 0.3;
-  localStorage.setItem('esa_weights', JSON.stringify(w));
-}
-function pickResponse(themeKey) {
-  const responses = DB[themeKey].responses;
-  const w = getWeights();
-  const scores = responses.map((_, i) => w[`${themeKey}_${i}`] || 3);
-  const total = scores.reduce((a, b) => a + b, 0);
-  let r = Math.random() * total;
-  for (let i = 0; i < scores.length; i++) {
-    r -= scores[i];
-    if (r <= 0) return { text: responses[i], idx: i };
-  }
-  return { text: responses[0], idx: 0 };
-}
-
 // ── STATE ─────────────────────────────────────────────────────────────────
-let currentQuestion  = '';
-let currentTheme     = '';
-let currentResponse  = '';
-let currentRespIdx   = 0;
-let currentIsPair    = false;
-let rated            = false;
+let currentQuestion = '';
+let currentResponse = '';
+let rated = false;
 
 function show(id) {
   ['screen-input','screen-thinking','screen-response'].forEach(s => {
@@ -581,37 +205,33 @@ function typewrite(el, text, onDone) {
 }
 
 // ── MAIN FLOW ──────────────────────────────────────────────────────────────
-function consult() {
+async function consult() {
   const q = document.getElementById('question').value.trim();
   if (!q) return;
+
   currentQuestion = q;
+  currentResponse = '';
   rated = false;
-  currentIsPair = false;
 
   document.querySelectorAll('.star').forEach(s => s.classList.remove('selected'));
   document.getElementById('sent-msg').hidden = true;
 
   show('screen-thinking');
 
-  setTimeout(() => {
-    const detection = detectTheme(q);
+  try {
+    const res = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pergunta: q }),
+    });
 
-    if (detection.type === 'pair') {
-      currentIsPair = true;
-      currentTheme = detection.key;
-      currentResponse = PAIRS[detection.key];
-      currentRespIdx = 0;
-      const parts = detection.key.split('_');
-      const label = parts.map(t => DB[t] ? DB[t].label : t).join(' × ');
-      document.getElementById('theme-tag').textContent = label;
-    } else {
-      currentIsPair = false;
-      currentTheme = detection.key;
-      const picked = pickResponse(detection.key);
-      currentResponse = picked.text;
-      currentRespIdx = picked.idx;
-      document.getElementById('theme-tag').textContent = DB[detection.key].label;
+    const data = await res.json();
+
+    if (!res.ok || data.error) {
+      throw new Error(data.error || 'Erro desconhecido');
     }
+
+    currentResponse = data.resposta;
 
     document.getElementById('question-echo').textContent = '"' + q + '"';
     const box = document.getElementById('response-text');
@@ -619,23 +239,27 @@ function consult() {
     show('screen-response');
     typewrite(box, currentResponse);
 
-    submitForm(currentQuestion, currentResponse, '', normalize(currentTheme));
-  }, 1800 + Math.random() * 800);
+    submitForm(currentQuestion, currentResponse, '');
+
+  } catch (err) {
+    show('screen-input');
+    const existing = document.querySelector('.error-msg');
+    if (existing) existing.remove();
+    const errEl = document.createElement('div');
+    errEl.className = 'error-msg';
+    errEl.textContent = 'O oráculo está temporariamente em silêncio. Tenta novamente.';
+    document.getElementById('screen-input').appendChild(errEl);
+    setTimeout(() => errEl.remove(), 4000);
+  }
 }
 
 function rate(nota) {
   if (rated) return;
   rated = true;
-
   document.querySelectorAll('.star').forEach((s, i) => {
     s.classList.toggle('selected', i < nota);
   });
-
-  if (!currentIsPair) {
-    saveWeight(currentTheme, currentRespIdx, nota);
-  }
-
-  submitForm(currentQuestion, currentResponse, nota, normalize(currentTheme));
+  submitForm(currentQuestion, currentResponse, nota);
   document.getElementById('sent-msg').hidden = false;
 }
 
@@ -647,7 +271,6 @@ function newQuestion() {
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey &&
-      document.getElementById('screen-input') &&
       !document.getElementById('screen-input').hidden) {
     e.preventDefault();
     consult();
