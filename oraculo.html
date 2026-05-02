@@ -100,6 +100,11 @@
   .cursor::after { content: '|'; animation: blink .7s step-end infinite; color: #ffaa44; margin-left: 1px; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
   .error-msg { font-size: .82rem; color: rgba(255,100,100,0.7); text-align: center; padding: 0 1rem; }
+  .about-toggle { background: none; border: none; color: rgba(255,255,255,0.25); cursor: pointer; font-family: inherit; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: 0; margin-top: .25rem; transition: color .2s; }
+  .about-toggle:hover { color: rgba(255,255,255,0.5); }
+  .about-box { overflow: hidden; max-height: 0; transition: max-height .4s ease, opacity .4s ease; opacity: 0; width: 100%; }
+  .about-box.open { max-height: 200px; opacity: 1; }
+  .about-text { font-size: .82rem; line-height: 1.75; color: rgba(255,255,255,0.38); text-align: center; padding: 1rem 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: .75rem; }
 </style>
 </head>
 <body>
@@ -114,6 +119,12 @@
     </svg>
     <h1>Walter Aio</h1>
     <p>Oráculo da Cosmovisão ESA</p>
+    <button class="about-toggle" onclick="toggleAbout()" id="about-btn">Quem é Walter Aio? ↓</button>
+    <div class="about-box" id="about-box">
+      <p class="about-text">
+        Walter Aio é o alter ego filosófico da <strong style="color:rgba(255,255,255,0.55);font-weight:400">Cosmovisão ESA</strong> — um framework pessoal que integra catolicismo, espiritismo kardecista, budismo e física moderna num único mapa de sentido. Ele não ensina de cima: pensa junto, levanta hipóteses, provoca. Tudo aqui é hipótese funcional — vale pelo quanto explica, não pelo que afirma.
+      </p>
+    </div>
   </div>
 
   <div id="screen-input" class="screen">
@@ -155,6 +166,14 @@
 </div>
 
 <script>
+// ── ABOUT TOGGLE ──────────────────────────────────────────────────────────
+function toggleAbout() {
+  const box = document.getElementById('about-box');
+  const btn = document.getElementById('about-btn');
+  const open = box.classList.toggle('open');
+  btn.textContent = open ? 'Quem é Walter Aio? ↑' : 'Quem é Walter Aio? ↓';
+}
+
 // ── CONFIGURAÇÃO ──────────────────────────────────────────────────────────
 // Substitui pela URL do teu Cloudflare Worker após o deploy
 const WORKER_URL = 'https://cosmovisaoesa.ediporj.workers.dev';

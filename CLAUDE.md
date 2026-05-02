@@ -39,24 +39,15 @@ Aplicação web estática em `oraculo.html`:
 - Action: `https://docs.google.com/forms/d/e/1FAIpQLSejbisEigTEHQlXLtu2r_vTwfEH4Y75JatduYxGv4V35i1qvg/formResponse`
 - entry.1157164550 (pergunta), entry.1789052446 (resposta), entry.710531699 (nota), entry.186344649 (palavras-chave)
 
-## Próximo passo: oráculo com LLM
+## Oráculo Walter Aio — versão LLM (em produção)
 
-**Problema atual:** respostas pré-escritas são genéricas demais para perguntas específicas.
-
-**Solução decidida:**
 ```
-oraculo.html → Cloudflare Worker → Gemini API (Google AI Studio)
+oraculo.html → Cloudflare Worker → Gemini API → Gemma 3 27B IT
 ```
-- Cloudflare Workers: guarda API key com segurança, faz proxy (conta existente)
-- Gemini 2.0 Flash ou Gemma (verificar disponibilidade) — tier gratuito
-- System prompt = conteúdo de `personas/walter-aio.md`
-- HTML chama o Worker; Worker chama a API; resposta volta ao HTML
-
-**Pendências:**
-- Verificar modelo disponível (Gemma 4 / Gemini 2.0 Flash) em ai.google.dev
-- Criar API key no Google AI Studio
-- Criar Worker no Cloudflare
-- Adaptar `oraculo.html` para chamar Worker em vez do DB estático
+- **Worker:** `https://cosmovisaoesa.ediporj.workers.dev`
+- **Modelo:** `gemma-3-27b-it` (Gemma não suporta `system_instruction` — system prompt vai como primeiro par `user`/`model` no `contents`)
+- **API key:** secret `GEMINI_API_KEY` no Worker (faturamento Google Cloud ativo)
+- **Código do Worker:** `cloudflare/worker.js`
 
 ## Convenções técnicas
 

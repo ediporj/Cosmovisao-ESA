@@ -99,33 +99,27 @@ A versão com respostas pré-escritas funciona, mas tem limitação: as pergunta
 
 ---
 
-## Próximo passo: oráculo com LLM
+## Oráculo com LLM — CONCLUÍDO ✓
 
-**Objetivo:** substituir as respostas pré-escritas por geração dinâmica via LLM, mantendo a persona Walter Aio via system prompt.
-
-**Arquitetura decidida:**
+**Arquitetura em produção:**
 ```
-oraculo.html → Cloudflare Worker → Gemini API (Google AI Studio)
+oraculo.html → Cloudflare Worker → Gemini API (Google AI Studio) → Gemma 3 27B IT
 ```
 
-- **Cloudflare Workers** (conta existente): guarda a API key com segurança, faz proxy
-  - Tier gratuito: 100.000 requisições/dia
-- **Gemini API / Google AI Studio**: tier gratuito, ~1500 req/dia
-  - Modelo: Gemini 2.0 Flash (ou Gemma se disponível via Groq)
-  - A chave fica no Worker, nunca exposta no HTML
+- **Worker:** `https://cosmovisaoesa.ediporj.workers.dev` (deploy no dashboard Cloudflare)
+- **Modelo:** `gemma-3-27b-it` via Gemini API
+- **API key:** armazenada como secret no Worker (`GEMINI_API_KEY`) — nunca exposta no HTML
+- **Conta Google AI Studio:** faturamento ativado (necessário mesmo no tier gratuito)
 
-**O que o Worker vai fazer:**
-1. Receber `{ pergunta: "..." }` do HTML
-2. Montar request para a API com o system prompt do Walter Aio
-3. Retornar a resposta gerada
+**Lições aprendidas:**
+- Cloudflare dashboard só aceita sintaxe Service Worker (`addEventListener`), não ES modules (`export default`)
+- Gemma não suporta `system_instruction` — system prompt deve ser injetado como primeiro par `user`/`model` no array `contents`
+- Modelo `gemini-2.0-flash` (sem versão) foi depreciado; usar `gemini-2.0-flash-001` ou Gemma
+- Faturamento precisa estar ativo no Google Cloud mesmo para requisições gratuitas
 
-**System prompt base:** conteúdo de `personas/walter-aio.md` — voz, framework ESA, regras de estilo
-
-**Pendências antes de implementar:**
-- [ ] Verificar se "Gemma 4" existe (checar em ai.google.dev) ou usar Gemini 2.0 Flash
-- [ ] Criar/ter API key no Google AI Studio
-- [ ] Criar Worker no Cloudflare (conta já existe)
-- [ ] Adaptar `oraculo.html` para chamar o Worker em vez do DB estático
+**Arquivos:**
+- `cloudflare/worker.js` — código do Worker (para referência e re-deploy)
+- `oraculo.html` — frontend que chama o Worker
 
 ---
 

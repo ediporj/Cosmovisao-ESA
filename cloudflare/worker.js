@@ -81,8 +81,11 @@ async function handleRequest(request) {
   const apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/' + MODEL + ':generateContent?key=' + GEMINI_API_KEY;
 
   const payload = {
-    system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
-    contents: [{ role: 'user', parts: [{ text: pergunta }] }],
+    contents: [
+      { role: 'user',  parts: [{ text: SYSTEM_PROMPT }] },
+      { role: 'model', parts: [{ text: 'Entendido. Responderei como Walter Aio, a partir da lógica interna da Cosmovisão ESA.' }] },
+      { role: 'user',  parts: [{ text: pergunta }] },
+    ],
     generationConfig: {
       temperature: 0.85,
       maxOutputTokens: 400,
