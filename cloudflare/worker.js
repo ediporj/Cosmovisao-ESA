@@ -76,8 +76,9 @@ async function handleRequest(request) {
     ],
     generationConfig: {
       temperature: 0.85,
-      maxOutputTokens: 200,
+      maxOutputTokens: 400,
       topP: 0.95,
+      thinkingConfig: { thinkingBudget: 0 },
     }
   };
 
