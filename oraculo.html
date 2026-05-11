@@ -96,6 +96,11 @@
   button.secondary { background: none; border: 1px solid rgba(255,255,255,0.12); border-radius: 8px; color: rgba(255,255,255,0.4); cursor: pointer; font-family: inherit; font-size: .78rem; letter-spacing: .1em; padding: .55rem 1.4rem; text-transform: uppercase; transition: border-color .2s, color .2s; }
   button.secondary:hover { border-color: rgba(255,255,255,.3); color: rgba(255,255,255,.7); }
   .sent-msg { font-size: .72rem; opacity: .3; letter-spacing: .08em; animation: fadeIn .4s ease; }
+  .comment-wrap { width: 100%; display: flex; flex-direction: column; gap: .6rem; animation: fadeIn .4s ease; }
+  .comment-wrap textarea { min-height: 72px; font-size: .85rem; user-select: text; }
+  .comment-actions { display: flex; gap: .8rem; justify-content: flex-end; }
+  button.comment-send { background: rgba(255,170,68,0.12); border: 1px solid rgba(255,170,68,0.35); border-radius: 8px; color: #ffaa44; cursor: pointer; font-family: inherit; font-size: .75rem; letter-spacing: .1em; padding: .45rem 1.2rem; text-transform: uppercase; transition: background .2s; }
+  button.comment-send:hover { background: rgba(255,170,68,0.22); }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: .3; } }
   .cursor::after { content: '|'; animation: blink .7s step-end infinite; color: #ffaa44; margin-left: 1px; }
   @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
@@ -156,6 +161,12 @@
         <button class="star" onclick="rate(4)" title="4">&#9733;</button>
         <button class="star" onclick="rate(5)" title="5">&#9733;</button>
       </div>
+      <div id="comment-wrap" class="comment-wrap" hidden>
+        <textarea id="comment-text" placeholder="Deixa um comentário (opcional)..." maxlength="600"></textarea>
+        <div class="comment-actions">
+          <button class="comment-send" onclick="sendComment()">Enviar comentário</button>
+        </div>
+      </div>
       <div class="btn-row">
         <button class="secondary" onclick="newQuestion()">Nova pergunta</button>
       </div>
@@ -186,12 +197,12 @@ const ENTRY = {
   nota:         'entry.710531699',
   palavrasChave:'entry.186344649'
 };
-function submitForm(pergunta, resposta, nota) {
+function submitForm(pergunta, resposta, nota, comentario) {
   const fd = new FormData();
   fd.append(ENTRY.pergunta,      pergunta);
   fd.append(ENTRY.resposta,      resposta);
   fd.append(ENTRY.nota,          String(nota));
-  fd.append(ENTRY.palavrasChave, 'llm');
+  fd.append(ENTRY.palavrasChave, comentario || 'llm');
   fetch(FORM_ACTION, { method:'POST', mode:'no-cors', body: fd }).catch(()=>{});
 }
 
@@ -258,7 +269,7 @@ async function consult() {
     show('screen-response');
     typewrite(box, currentResponse);
 
-    submitForm(currentQuestion, currentResponse, '');
+    submitForm(currentQuestion, currentResponse, '', '');
 
   } catch (err) {
     show('screen-input');
@@ -278,12 +289,23 @@ function rate(nota) {
   document.querySelectorAll('.star').forEach((s, i) => {
     s.classList.toggle('selected', i < nota);
   });
-  submitForm(currentQuestion, currentResponse, nota);
+  submitForm(currentQuestion, currentResponse, nota, '');
+  document.getElementById('comment-wrap').hidden = false;
+  document.getElementById('comment-text').focus();
+}
+
+function sendComment() {
+  const comentario = document.getElementById('comment-text').value.trim();
+  if (comentario) submitForm(currentQuestion, currentResponse, '', comentario);
+  document.getElementById('comment-wrap').hidden = true;
   document.getElementById('sent-msg').hidden = false;
 }
 
 function newQuestion() {
   document.getElementById('question').value = '';
+  document.getElementById('comment-text').value = '';
+  document.getElementById('comment-wrap').hidden = true;
+  document.getElementById('sent-msg').hidden = true;
   show('screen-input');
   document.getElementById('question').focus();
 }
