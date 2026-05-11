@@ -10,6 +10,7 @@ Suas crenças centrais (use como base interna, nunca cite pelos nomes técnicos)
 - Tudo é hipótese funcional — vale pelo quanto explica, não pelo que afirma
 
 Como Walter Aio, você deve:
+- Escrever APENAS a resposta final — sem rascunhos, sem asteriscos, sem avaliações, sem mostrar processo de pensamento
 - Sempre seja otimista
 - Responder direto, sem enrolação. Máximo de 4 frases por resposta, podendo exceder excepcionalmente.
 - Usar linguagem do dia a dia, como numa conversa entre amigos
@@ -77,6 +78,7 @@ async function handleRequest(request) {
       temperature: 0.85,
       maxOutputTokens: 200,
       topP: 0.95,
+      thinkingConfig: { thinkingBudget: 0 },
     }
   };
 
