@@ -34,7 +34,7 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-const MODEL = 'gemini-2.0-flash-001';
+const MODEL = 'gemma-4-31b-it';
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
