@@ -35,7 +35,7 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
-const MODEL = 'gemma-4-31b-it';
+const MODEL = 'gemini-2.5-flash';
 
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request));
@@ -78,7 +78,6 @@ async function handleRequest(request) {
       temperature: 0.85,
       maxOutputTokens: 200,
       topP: 0.95,
-      thinkingConfig: { thinkingBudget: 0 },
     }
   };
 
@@ -97,13 +96,15 @@ async function handleRequest(request) {
       });
     }
 
-    const resposta = (data.candidates &&
-                     data.candidates[0] &&
-                     data.candidates[0].content &&
-                     data.candidates[0].content.parts &&
-                     data.candidates[0].content.parts[0] &&
-                     data.candidates[0].content.parts[0].text)
-      || 'O oráculo está em silêncio. Traz a pergunta de outro ângulo.';
+    const raw = (data.candidates &&
+                 data.candidates[0] &&
+                 data.candidates[0].content &&
+                 data.candidates[0].content.parts &&
+                 data.candidates[0].content.parts[0] &&
+                 data.candidates[0].content.parts[0].text)
+      || '';
+
+    const resposta = raw.trim() || 'O oráculo está em silêncio. Traz a pergunta de outro ângulo.';
 
     return new Response(JSON.stringify({ resposta: resposta }), {
       headers: Object.assign({ 'Content-Type': 'application/json' }, CORS_HEADERS)
